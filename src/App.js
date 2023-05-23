@@ -25,7 +25,7 @@ function App() {
             <Route exact path="/">
                 <img src={logo} className="App-logo" alt="logo" />
                 <p>
-                  Edit <code>src/App.js</code> and save to reload.
+                  Edit <code>src/App.js</code> and save to reload. This is a change
                 </p>
                 <a
                   className="App-link"
