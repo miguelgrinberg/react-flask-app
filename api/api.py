@@ -19,8 +19,8 @@ def index():
 def get_current_time():
     return {'time': time.time()}
 
-@app.route('/movies')
-def get_movies():
-    url = "http://www.omdbapi.com/?s=avengers&apikey=263d22d8"
+@app.route('/movies/<searchValue>')
+def get_movies(searchValue):
+    url = "http://www.omdbapi.com/?s=" + str(searchValue) + "&apikey=263d22d8"
     response = requests.get(url=url)
     return response.json()
