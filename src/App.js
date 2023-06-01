@@ -1,48 +1,99 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Link, Switch, Route } from 'react-router-dom';
-import logo from './logo.svg';
 import './App.css';
 
+/*TODOS
+Create functions for pandas operations
+Add API
+Add table of raw data?
+Add charts and graphs according to spreadsheet
+Add form to generate for seed and for query parameters
+Commit history, comments, and documentation
+ */
+
 function App() {
-  const [currentTime, setCurrentTime] = useState(0);
 
   useEffect(() => {
-    fetch('/api/time').then(res => res.json()).then(data => {
-      setCurrentTime(data.time);
+    fetch('/api/get_user_statistics').then(res => res.json()).then(data => {
+      console.log(data);
     });
   }, []);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <BrowserRouter>
+    <div className="user-statistics-dashboard">
+      {/*
+      <Formik>
+        <Form>
           <div>
-            <Link className="App-link" to="/">Home</Link>
-            &nbsp;|&nbsp;
-            <Link className="App-link" to="/page2">Page2</Link>
+            <label>Email</label>
+            <Field type="email" name="email" placeholder="Email" />
           </div>
-          <Switch>
-            <Route exact path="/">
-                <img src={logo} className="App-logo" alt="logo" />
-                <p>
-                  Edit <code>src/App.js</code> and save to reload.
-                </p>
-                <a
-                  className="App-link"
-                  href="https://reactjs.org"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Learn React
-                </a>
-                <p>The current time is {currentTime}.</p>
-            </Route>
-            <Route path="/page2">
-                <p>This is page 2!</p>
-            </Route>
-          </Switch>
-        </BrowserRouter>
-      </header>
+          <Field as="select" name="color">
+            <option value="red">Red</option>
+            <option value="green">Green</option>
+            <option value="blue">Blue</option>
+          </Field>
+        </Form>
+      </Formik>
+  */}
+      <div>
+        <h3>User Summary statistics</h3>
+        <h4>Female Users</h4>
+        <table>
+          <thead>
+            <tr>
+              <td>Age Group</td>
+              <td>Percentage</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>under 16</td>
+              <td>20%</td>
+            </tr>
+          </tbody>
+        </table>
+        <h4>Breakdown by Age</h4>
+        <table>
+          <thead>
+            <tr>
+              <td>Age Group</td>
+              <td>Percentage</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>under 16</td>
+              <td>20%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      {/*
+      <LineChart
+        width={500}
+        height={300}
+        data={data}
+        margin={{
+          top: 5,
+          right: 30,
+          left: 20,
+          bottom: 5
+        }}
+      >
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="name" />
+        <YAxis />
+        <Tooltip />
+        <Legend />
+        <Line
+          type="monotone"
+          dataKey="pv"
+          stroke="#8884d8"
+          activeDot={{ r: 8 }}
+        />
+        <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+      </LineChart>
+      */}
     </div>
   );
 }
