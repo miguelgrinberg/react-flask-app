@@ -12,9 +12,9 @@
     "react-scripts": "3.4.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "start-api": "cd api && venv/bin/flask run --no-debugger",
-    "build": "react-scripts build",
+    "start": "react-scripts --openssl-legacy-provider start",
+    "start-api": "cd api && ../venv/bin/flask run",
+    "build": "react-scripts --openssl-legacy-provider build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -33,5 +33,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:5000"
+  "proxy": "http://127.0.0.1:5000"
 }
