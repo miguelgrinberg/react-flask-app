@@ -11,6 +11,7 @@ const App = () => {
 	const [movies, setMovies] = useState([]);
 	const [favourites, setFavourites] = useState([]);
 	const [searchValue, setSearchValue] = useState('');
+	const [recommendations, setRecommendations] = useState([]);
 
 	const getMovieRequest = async (searchValue) => {
 
@@ -77,6 +78,16 @@ const App = () => {
 					movies={favourites}
 					handleFavouritesClick={removeFavouriteMovie}
 					favouriteComponent={RemoveFavourites}
+				/>
+			</div>
+			<div className='row d-flex align-items-center mt-4 mb-4'>
+				<MovieListHeading heading='Recommendations' />
+			</div>
+			<div className='row'>
+				<MovieList
+					movies={favourites} //recommendations
+					handleFavouritesClick={addFavouriteMovie}
+					favouriteComponent={AddFavourites}
 				/>
 			</div>
 		</div>
