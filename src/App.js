@@ -16,6 +16,7 @@ const App = () => {
 	const getMovieRequest = async (searchValue) => {
 
     const url = `/movies/${searchValue}`
+	const url2 = `/movies/recommend/${searchValue}`
 
     fetch(url).then(res => res.json()).then(data => {
       if (data.Search) {
