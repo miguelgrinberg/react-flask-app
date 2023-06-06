@@ -16,13 +16,22 @@ const App = () => {
 	const getMovieRequest = async (searchValue) => {
 
     const url = `/movies/${searchValue}`
-	const url2 = `/movies/recommend/${searchValue}`
 
     fetch(url).then(res => res.json()).then(data => {
       if (data.Search) {
         setMovies(data.Search);
       }
     });
+	};
+
+	const getRecommendedMovies = async (favourites) => {
+
+		const url = `/movies/recommend`
+
+		fetch(url).then(res => res.json()).then(data => { 
+			setRecommendations(data.Search);
+		  }
+		);
 	};
 
 	useEffect(() => {
@@ -36,6 +45,16 @@ const App = () => {
 
 		if (movieFavourites) {
 			setFavourites(movieFavourites);
+		}
+	}, []);
+
+	useEffect(() => {
+		const movieFavourites = JSON.parse(
+			localStorage.getItem('react-movie-app-favourites')
+		);
+
+		if (movieFavourites) {
+			getRecommendedMovies(movieFavourites)
 		}
 	}, []);
 
@@ -86,7 +105,7 @@ const App = () => {
 			</div>
 			<div className='row'>
 				<MovieList
-					movies={favourites} //recommendations
+					movies={recommendations}
 					handleFavouritesClick={addFavouriteMovie}
 					favouriteComponent={AddFavourites}
 				/>
