@@ -1,25 +1,50 @@
 import pandas as pd
 import requests
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import linear_kernel
 
-input={
-            "Title": "Star Wars: Episode IV - A New Hope",
-            "Year": "1977",
-            "imdbID": "tt0076759",
-            "Type": "movie",
-            "Poster": "https://m.media-amazon.com/images/M/MV5BOTA5NjhiOTAtZWM0ZC00MWNhLThiMzEtZDFkOTk2OTU1ZDJkXkEyXkFqcGdeQXVyMTA4NDI1NTQx._V1_SX300.jpg"
-        }
+input={"Title":"Star Wars: Episode IV - A New Hope","Year":"1977","imdbID":"tt0076759","Type":"movie","Poster":"https://m.media-amazon.com/images/M/MV5BOTA5NjhiOTAtZWM0ZC00MWNhLThiMzEtZDFkOTk2OTU1ZDJkXkEyXkFqcGdeQXVyMTA4NDI1NTQx._V1_SX300.jpg"}
 
-def recommend(input):
-    # column_names = ['genres-id', 'genres-name', 'adult', 'imdb_id', 'original_language', 'original_title', 'overview', 'popularity', 'release_date', 'runtime', 'tagline', 'vote_average', 'vote_count', 'id']
-    column_names = ['Genre', 'imdbID', 'Language', 'Title', 'Released']
-    url = "http://www.omdbapi.com/?i=tt3445408&apikey=2651b0db"
+def get_plot(input):
+    imdbID = pd.json_normalize(input)['imdbID']
+    url = "http://www.omdbapi.com/?i=" + str(imdbID[0]) + "&apikey=2651b0db"
     response = requests.get(url=url)
+    df = pd.json_normalize(response.json())
+    plot = df[['Title', 'Plot']]
+    plot.columns = ['title', 'overview']
+    return plot
 
+path = "./data/tmdb_5000_movies.csv"
+df = pd.read_csv(path)
+df = df[['title', 'overview']]
 
-    path = "./data/dataset.csv"
-    df = pd.read_csv(path)
-    print(df.head(10))
-    df2 = pd.json_normalize(response.json())
+df['overview'] = df['overview'].fillna('')
+df2 = pd.concat([df, get_plot(input)], ignore_index=True)
 
+tfidf = TfidfVectorizer(stop_words='english')
+tfidf_matrix = tfidf.fit_transform(df2['overview'])
+tfidf_matrix.shape
+
+cosine_sim = linear_kernel(tfidf_matrix, tfidf_matrix)
+indices = pd.Series(df2.index, index=df2['title']).drop_duplicates()
+
+def get_recommendations(title, cosine_sim=cosine_sim):
+    # Get the index of the movie that matches the title
+    idx = indices[title]
+
+    # Get the pairwsie similarity scores of all movies with that movie
+    sim_scores = list(enumerate(cosine_sim[idx]))
+
+    # Sort the movies based on the similarity scores
+    sim_scores = sorted(sim_scores, key=lambda x: x[1], reverse=True)
+
+    # Get the scores of the 10 most similar movies
+    sim_scores = sim_scores[1:11]
+
+    # Get the movie indices
+    movie_indices = [i[0] for i in sim_scores]
+
+    # Return the top 10 most similar movies
+    print(df['title'].iloc[movie_indices])
     
-recommend(input)
+get_recommendations('Star Wars: Episode IV - A New Hope')
