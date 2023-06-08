@@ -21,11 +21,11 @@ const App = () => {
         setMovies(data.Search);
       }
     });
-	};
+};
 
-	// useEffect(() => {
-	// 	getMovieRequest(searchValue);
-	// }, [searchValue]);
+	useEffect(() => {
+		getMovieRequest(searchValue);
+	}, [searchValue]);
 
 	useEffect(() => {
 		const movieFavourites = JSON.parse(
