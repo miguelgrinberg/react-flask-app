@@ -24,5 +24,4 @@ def get_movies(searchValue):
 def get_movies_by_year(searchValue, year):
     url = "https://www.omdbapi.com/?s=" + str(searchValue) + "&y=" + str(year) + "&apikey=263d22d8"
     response = requests.get(url=url)
-    print(response.json())
     return response.json()

@@ -4,26 +4,17 @@ import './App.css';
 import MovieList from './components/MovieList';
 import MovieListHeading from './components/MovieListHeading';
 import SearchBox from './components/SearchBox';
-import YearBox from './components/YearBox';
 import AddFavourites from './components/AddFavourites';
 import RemoveFavourites from './components/RemoveFavourites';
-import { Button } from 'bootstrap';
-import SearchButton from './components/SearchButton';
 
 const App = () => {
 	const [movies, setMovies] = useState([]);
 	const [favourites, setFavourites] = useState([]);
 	const [searchValue, setSearchValue] = useState('');
-	const [yearValue, setYearValue] = useState('');
-	const [url, setUrl] = useState('');
 
-	const getMovieRequest = async (searchValue,yearValue) => {
+	const getMovieRequest = async (searchValue) => {
 
-	// if (yearValue) {
-	// 	setUrl(`/movies/${searchValue}`)
-	// } else {
-	setUrl(`/movies/${searchValue}/${yearValue}`)
-
+	const url = `/movies/${searchValue}`
 
     fetch(url).then(res => res.json()).then(data => {
       if (data.Search) {
@@ -33,12 +24,8 @@ const App = () => {
 	};
 
 	// useEffect(() => {
-	// 	getMovieRequest(searchValue, yearValue);
-	// }, [searchValue, yearValue]);
-
-	// useEffect(() => {
-	// 	getMovieRequest(searchValue, yearValue);
-	// }, [search]);
+	// 	getMovieRequest(searchValue);
+	// }, [searchValue]);
 
 	useEffect(() => {
 		const movieFavourites = JSON.parse(
@@ -49,10 +36,6 @@ const App = () => {
 			setFavourites(movieFavourites);
 		}
 	}, []);
-
-	const getMovies = () => {
-		getMovieRequest(searchValue, yearValue)
-	};
 
 	const saveToLocalStorage = (items) => {
 		localStorage.setItem('react-movie-app-favourites', JSON.stringify(items));
@@ -78,12 +61,6 @@ const App = () => {
 			<div className='row d-flex align-items-center mt-4 mb-4'>
 				<MovieListHeading heading='Movies' />
 				<SearchBox searchValue={searchValue} setSearchValue={setSearchValue} />
-				<YearBox yearValue={yearValue} setYearValue={setYearValue} />
-				<button 
-					type="button" 
-					class="btn btn-light"
-					onClick={getMovies}
-				>Search</button>
 			</div>
 			<div className='row'>
 				<MovieList
