@@ -14,9 +14,9 @@ def get_plot(input):
     plot.columns = ['title', 'overview']
     return plot
 
-path = "./data/tmdb_5000_movies.csv"
+path = "./data/dataset2.csv"
 df = pd.read_csv(path)
-df = df[['title', 'overview']]
+df = df[['title', 'imdb_id', 'overview']]
 
 df['overview'] = df['overview'].fillna('')
 df2 = pd.concat([df, get_plot(input)], ignore_index=True)
@@ -39,12 +39,10 @@ def get_recommendations(title, cosine_sim=cosine_sim):
     sim_scores = sorted(sim_scores, key=lambda x: x[1], reverse=True)
 
     # Get the scores of the 10 most similar movies
-    sim_scores = sim_scores[1:11]
+    sim_scores = sim_scores[1:3]
 
     # Get the movie indices
     movie_indices = [i[0] for i in sim_scores]
 
     # Return the top 10 most similar movies
-    print(df['title'].iloc[movie_indices])
-    
-get_recommendations('Star Wars: Episode IV - A New Hope')
+    return df['imdb_id'].iloc[movie_indices].values.tolist()

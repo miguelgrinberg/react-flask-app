@@ -27,12 +27,17 @@ const App = () => {
 	const getRecommendedMovies = async (favourites) => {
 
 		const url = `/movies/recommend`
-
-		fetch(url).then(res => res.json()).then(data => { 
-			setRecommendations(data.Search);
-		  }
-		);
-	};
+        const requestOptions = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: favourites[favourites.length - 1]
+            };
+        const response = fetch(url).then(res => res.json()).then(data => {
+            console.log(favourites[favourites.length - 1]);
+            addRecommendedMovie(data)
+            console.log(recommendations);
+        });
+		  };
 
 	useEffect(() => {
 		getMovieRequest(searchValue);
@@ -67,6 +72,11 @@ const App = () => {
 		setFavourites(newFavouriteList);
 		saveToLocalStorage(newFavouriteList);
 	};
+
+	const addRecommendedMovie = (movie) => {
+    		const newRecommendedList = recommendations.concat(movie)
+    		setRecommendations(newRecommendedList);
+    };
 
 	const removeFavouriteMovie = (movie) => {
 		const newFavouriteList = favourites.filter(
