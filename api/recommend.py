@@ -3,34 +3,32 @@ import requests
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import linear_kernel
 
-input={"Title":"Star Wars: Episode IV - A New Hope","Year":"1977","imdbID":"tt0076759","Type":"movie","Poster":"https://m.media-amazon.com/images/M/MV5BOTA5NjhiOTAtZWM0ZC00MWNhLThiMzEtZDFkOTk2OTU1ZDJkXkEyXkFqcGdeQXVyMTA4NDI1NTQx._V1_SX300.jpg"}
-
 def get_plot(input):
-    imdbID = pd.json_normalize(input)['imdbID']
-    url = "http://www.omdbapi.com/?i=" + str(imdbID[0]) + "&apikey=2651b0db"
+    url = "http://www.omdbapi.com/?i=" + str(input) + "&apikey=2651b0db"
     response = requests.get(url=url)
     df = pd.json_normalize(response.json())
-    plot = df[['Title', 'Plot']]
-    plot.columns = ['title', 'overview']
+    plot = df[['Title', 'imdbID', 'Plot']]
+    plot.columns = ['title', 'imdb_id', 'overview']
     return plot
 
-path = "./data/dataset2.csv"
-df = pd.read_csv(path)
-df = df[['title', 'imdb_id', 'overview']]
 
-df['overview'] = df['overview'].fillna('')
-df2 = pd.concat([df, get_plot(input)], ignore_index=True)
-
-tfidf = TfidfVectorizer(stop_words='english')
-tfidf_matrix = tfidf.fit_transform(df2['overview'])
-tfidf_matrix.shape
-
-cosine_sim = linear_kernel(tfidf_matrix, tfidf_matrix)
-indices = pd.Series(df2.index, index=df2['title']).drop_duplicates()
-
-def get_recommendations(title, cosine_sim=cosine_sim):
+def get_recommendations(imdb_id):
     # Get the index of the movie that matches the title
-    idx = indices[title]
+
+    path = "./data/dataset2.csv"
+    df = pd.read_csv(path)
+    df = df[['title', 'imdb_id', 'overview']]
+
+    df['overview'] = df['overview'].fillna('')
+    df2 = pd.concat([df, get_plot(imdb_id)], ignore_index=True)
+
+    tfidf = TfidfVectorizer(stop_words='english')
+    tfidf_matrix = tfidf.fit_transform(df2['overview'])
+    tfidf_matrix.shape
+
+    cosine_sim = linear_kernel(tfidf_matrix, tfidf_matrix)
+    indices = pd.Series(df2.index, index=df2['imdb_id']).drop_duplicates()
+    idx = indices[imdb_id]
 
     # Get the pairwsie similarity scores of all movies with that movie
     sim_scores = list(enumerate(cosine_sim[idx]))
