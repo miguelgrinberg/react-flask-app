@@ -1,16 +1,14 @@
 import pandas as pd
-import requests
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import linear_kernel
+import api
 
 def get_plot(input):
-    url = "http://www.omdbapi.com/?i=" + str(input) + "&apikey=2651b0db"
-    response = requests.get(url=url)
-    df = pd.json_normalize(response.json())
+    response = api.get_movies_by_id(input)
+    df = pd.json_normalize(response)
     plot = df[['Title', 'imdbID', 'Plot']]
     plot.columns = ['title', 'imdb_id', 'overview']
     return plot
-
 
 def get_recommendations(imdb_id):
     # Get the index of the movie that matches the title
