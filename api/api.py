@@ -1,8 +1,5 @@
-import time
-import urllib
-
 import requests
-from flask import Flask, request
+from flask import Flask
 from recommend import get_recommendations
 
 app = Flask(__name__, static_folder='../build', static_url_path='/')
@@ -35,6 +32,4 @@ def get_recommendation(searchValue):
     for id in b:
         print(id)
         response.append(get_movies_by_id(id))
-    print(response)
-    return response;
-get_recommendation("tt0110357")
+    return response

@@ -25,17 +25,11 @@ const App = () => {
 	};
 
 	const getRecommendedMovies = async (favourites) => {
+        console.log(favourites);
+		const url = `/movies/recommend/${favourites[favourites.length - 1].imdbID}`;
 
-		const url = `/movies/recommend`
-        const requestOptions = {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: favourites[favourites.length - 1]
-            };
         const response = fetch(url).then(res => res.json()).then(data => {
-            console.log(favourites[favourites.length - 1]);
             addRecommendedMovie(data)
-            console.log(recommendations);
         });
 		  };
 
@@ -53,29 +47,27 @@ const App = () => {
 		}
 	}, []);
 
-	useEffect(() => {
-		const movieFavourites = JSON.parse(
-			localStorage.getItem('react-movie-app-favourites')
-		);
+	const saveToLocalStorage = (key, items) => {
+		localStorage.setItem(key, JSON.stringify(items));
 
-		if (movieFavourites) {
-			getRecommendedMovies(movieFavourites)
-		}
-	}, [favourites]);
-
-	const saveToLocalStorage = (items) => {
-		localStorage.setItem('react-movie-app-favourites', JSON.stringify(items));
 	};
 
 	const addFavouriteMovie = (movie) => {
 		const newFavouriteList = [...favourites, movie];
 		setFavourites(newFavouriteList);
-		saveToLocalStorage(newFavouriteList);
+		saveToLocalStorage('react-movie-app-favourites', newFavouriteList);
+		getRecommendedMovies(newFavouriteList);
 	};
 
 	const addRecommendedMovie = (movie) => {
     		const newRecommendedList = recommendations.concat(movie)
-    		setRecommendations(newRecommendedList);
+    	    let uniqueRecommendedList = newRecommendedList.filter(({imdbID}, index) => {
+                return newRecommendedList.findIndex(item => item.imdbID === imdbID) === index;
+            });
+
+            console.log(uniqueRecommendedList)
+    		setRecommendations(uniqueRecommendedList);
+    		saveToLocalStorage('react-movie-app-recommendations', uniqueRecommendedList);
     };
 
 	const removeFavouriteMovie = (movie) => {
@@ -84,7 +76,7 @@ const App = () => {
 		);
 
 		setFavourites(newFavouriteList);
-		saveToLocalStorage(newFavouriteList);
+		saveToLocalStorage('react-movie-app-favourites', newFavouriteList);
 	};
 
 	return (

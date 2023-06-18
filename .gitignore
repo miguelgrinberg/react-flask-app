@@ -23,3 +23,6 @@ __pycache__
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+/.idea
+/api/.ipynb_checkpoints
