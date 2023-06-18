@@ -67,7 +67,6 @@ const App = () => {
 
             console.log(uniqueRecommendedList)
     		setRecommendations(uniqueRecommendedList);
-    		localStorage.clear('react-movie-app-recommendations');
     		saveToLocalStorage('react-movie-app-recommendations', uniqueRecommendedList);
     };
 
