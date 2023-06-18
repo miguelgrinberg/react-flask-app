@@ -13,10 +13,6 @@ body {
 	transition: transform 0.2s;
 }
 
-.poster-placeholder {
-
-}
-
 .image-container:hover {
 	cursor: pointer;
 	transform: scale(1.1);

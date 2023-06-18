@@ -1,6 +1,5 @@
 import requests
 from flask import Flask
-from recommend import get_recommendations
 
 app = Flask(__name__, static_folder='../build', static_url_path='/')
 
@@ -24,12 +23,3 @@ def get_movies_by_id(searchValue):
     url = "http://www.omdbapi.com/?i=" + str(searchValue) + "&apikey=2651b0db"
     response = requests.get(url=url)
     return response.json()
-
-@app.route('/movies/recommend/<searchValue>')
-def get_recommendation(searchValue):
-    b = get_recommendations(searchValue)
-    response = []
-    for id in b:
-        print(id)
-        response.append(get_movies_by_id(id))
-    return response
