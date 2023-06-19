@@ -2,7 +2,7 @@
 
 ### User description
 
-As a user, I want the background colour of the application to be more vibrant but dark colour.
+As a user, I want the background colour of the application to be a more vibrant but dark colour.
 
 ### To-do
 

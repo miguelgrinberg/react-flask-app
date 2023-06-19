@@ -1,0 +1,1 @@
+# Task: Change the size of the movie posters

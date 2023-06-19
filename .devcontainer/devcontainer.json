@@ -9,7 +9,7 @@
 		"ghcr.io/oleksis/devcontainer-features/python-launcher:1": {}
 	},
 
-	"postStartCommand": "yarn install && cd api && pip install -r requirements.txt && python3 -m venv venv && source venv/bin/activate && pip install -r requirements.txt"
+	"postStartCommand": "pip install -r requirements.txt && yarn install && cd api && pip install -r requirements.txt && python3 -m venv venv"
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},

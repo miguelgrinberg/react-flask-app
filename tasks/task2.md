@@ -5,7 +5,7 @@
 As a user, I want the movie posters to have more space in between. Not too spaced out, not too close together… something just right…
 
 ### To-do
-- Add a line of code in to set the amount of padding you would like to introduce by creating a new CSS class. For example:
+- Add a line of code to set the amount of padding you would like to introduce by creating a new CSS class. For example:
 
 ```css
 .sidepadding { padding-right: 20px; }
@@ -20,4 +20,4 @@ As a user, I want the movie posters to have more space in between. Not too space
 ### Files to change
 
 - App.css
-- MovieList.js
+- components/MovieList.js

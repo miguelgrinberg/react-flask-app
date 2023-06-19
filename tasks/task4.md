@@ -1,0 +1,1 @@
+# Task: Display list of movies upon initial page start-up
