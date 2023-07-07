@@ -6,3 +6,6 @@ Jinja2==3.0.1
 MarkupSafe==2.1.1
 python-dotenv==0.17.1
 Werkzeug==2.2.3
+requests==2.31.0
+pandas==2.0.2
+scikit-learn==1.2.2 
