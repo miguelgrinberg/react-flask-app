@@ -14,21 +14,21 @@ const App = () => {
 	const [recommendations, setRecommendations] = useState([]);
 
 	const getMovieRequest = async (searchValue) => {
-    	const url = `/movies/${searchValue}`
+    const url = `/movies/${searchValue}`
 
 		fetch(url).then(res => res.json()).then(data => {
 		if (data.Search) {
 			setMovies(data.Search);
-		}
+		  }
 		});
 	};
 
-	const getRecommendedMovies = async (favourites) => {
-		const url = `/movies/recommend/${favourites[favourites.length - 1].imdbID}`;
+  const getRecommendedMovies = async (favourites) => {
+	  const url = `/movies/recommend/${favourites[favourites.length - 1].imdbID}`;
 
-        fetch(url).then(res => res.json()).then(data => {
-            addRecommendedMovie(data)
-        });
+    fetch(url).then(res => res.json()).then(data => {
+      addRecommendedMovie(data)
+    });
 	};
 
 	useEffect(() => {
