@@ -14,24 +14,22 @@ const App = () => {
 	const [recommendations, setRecommendations] = useState([]);
 
 	const getMovieRequest = async (searchValue) => {
+    	const url = `/movies/${searchValue}`
 
-    const url = `/movies/${searchValue}`
-
-    fetch(url).then(res => res.json()).then(data => {
-      if (data.Search) {
-        setMovies(data.Search);
-      }
-    });
+		fetch(url).then(res => res.json()).then(data => {
+		if (data.Search) {
+			setMovies(data.Search);
+		}
+		});
 	};
 
 	const getRecommendedMovies = async (favourites) => {
-        console.log(favourites);
 		const url = `/movies/recommend/${favourites[favourites.length - 1].imdbID}`;
 
-        const response = fetch(url).then(res => res.json()).then(data => {
+        fetch(url).then(res => res.json()).then(data => {
             addRecommendedMovie(data)
         });
-		  };
+	};
 
 	useEffect(() => {
 		getMovieRequest(searchValue);
@@ -60,14 +58,13 @@ const App = () => {
 	};
 
 	const addRecommendedMovie = (movie) => {
-    		const newRecommendedList = recommendations.concat(movie)
-    	    let uniqueRecommendedList = newRecommendedList.filter(({imdbID}, index) => {
-                return newRecommendedList.findIndex(item => item.imdbID === imdbID) === index;
-            });
+    	const newRecommendedList = recommendations.concat(movie)
+    	let uniqueRecommendedList = newRecommendedList.filter(({imdbID}, index) => {
+            return newRecommendedList.findIndex(item => item.imdbID === imdbID) === index;
+        });
 
-            console.log(uniqueRecommendedList)
-    		setRecommendations(uniqueRecommendedList);
-    		saveToLocalStorage('react-movie-app-recommendations', uniqueRecommendedList);
+    	setRecommendations(uniqueRecommendedList);
+    	saveToLocalStorage('react-movie-app-recommendations', uniqueRecommendedList);
     };
 
 	const removeFavouriteMovie = (movie) => {

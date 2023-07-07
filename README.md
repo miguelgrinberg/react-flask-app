@@ -1,18 +1,20 @@
+# Movie Finder and Recommendation App
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 A Flask based API backend was added in the *api* directory.
 
-Read my [tutorial](https://blog.miguelgrinberg.com/post/how-to-create-a-react--flask-project) on how to create Flask + React combined projects.
+Read the main [tutorial](https://blog.miguelgrinberg.com/post/how-to-create-a-react--flask-project) on how to create Flask + React combined projects.
 
-## Start API
+## Start Flask API
 ```
 cd api
-source venv/bin/activate && pip install -r requirements.txt
+source venv/bin/activate
+pip install -r requirements.txt
 yarn start-api
 ```
 
-## Start React
+## Start React App
 ```
-yarn install
 yarn start
 ```
