@@ -10,7 +10,6 @@ Read the main [tutorial](https://blog.miguelgrinberg.com/post/how-to-create-a-re
 ```
 cd api
 source venv/bin/activate
-pip install -r requirements.txt
 yarn start-api
 ```
 
