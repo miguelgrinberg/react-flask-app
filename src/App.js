@@ -14,7 +14,7 @@ const App = () => {
 	const [recommendations, setRecommendations] = useState([]);
 
 	const getMovieRequest = async (searchValue) => {
-    const url = `/movies/${searchValue}`
+    	const url = `/movies/${searchValue}`
 
 		fetch(url).then(res => res.json()).then(data => {
 		if (data.Search) {
@@ -23,18 +23,20 @@ const App = () => {
 		});
 	};
 
-  const getRecommendedMovies = async (favourites) => {
-	  const url = `/movies/recommend/${favourites[favourites.length - 1].imdbID}`;
+  	const getRecommendedMovies = async (favourites) => {
+		const url = `/movies/recommend/${favourites[favourites.length - 1].imdbID}`;
 
-    fetch(url).then(res => res.json()).then(data => {
-      addRecommendedMovie(data)
-    });
+    	fetch(url).then(res => res.json()).then(data => {
+      	addRecommendedMovie(data)
+    	});
 	};
 
+	// Gets the requested movie whenever searchValue changes
 	useEffect(() => {
 		getMovieRequest(searchValue);
 	}, [searchValue]);
 
+	// Whenever page is rerendered, sets the movie favourites if the local storage contains any favourited movies
 	useEffect(() => {
 		const movieFavourites = JSON.parse(
 			localStorage.getItem('react-movie-app-favourites')
@@ -44,6 +46,7 @@ const App = () => {
 			setFavourites(movieFavourites);
 		}
 	}, []);
+
 
 	const saveToLocalStorage = (key, items) => {
 		localStorage.setItem(key, JSON.stringify(items));

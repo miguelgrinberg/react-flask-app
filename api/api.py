@@ -15,7 +15,6 @@ def index():
 def get_movies(searchValue):
     url = "http://www.omdbapi.com/?s=" + str(searchValue) + "&apikey=2651b0db"
     response = requests.get(url=url)
-    print(response.json())
     return response.json()
 
 @app.route('/movies/imdbID/<searchValue>')
