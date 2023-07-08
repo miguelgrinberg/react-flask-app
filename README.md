@@ -17,3 +17,9 @@ yarn start-api
 ```
 yarn start
 ```
+
+## Before running Jupyter Notebook
+```
+cd api
+pip install -r requirements.txt
+```
