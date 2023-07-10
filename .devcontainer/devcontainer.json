@@ -8,8 +8,9 @@
 		"ghcr.io/devcontainers/features/python:1": {},
 		"ghcr.io/oleksis/devcontainer-features/python-launcher:1": {}
 	},
-
-	"postStartCommand": "yarn install && cd api && python3 -m venv venv"
+	"waitFor": "onCreateCommand",
+	"updateContentCommand": "yarn install && cd api && python3 -m venv venv",
+	"postStartCommand": "",
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
@@ -21,7 +22,17 @@
 	// "postCreateCommand": "yarn install",
 
 	// Configure tool-specific properties.
-	// "customizations": {},
+	"customizations": {
+		"codespaces": {
+      		"openFiles": []
+    	},
+    	"vscode": {
+      		"extensions": [
+        		"ms-toolsai.jupyter",
+        		"ms-python.python"
+      		]
+    	}
+	}
 
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
 	// "remoteUser": "root"

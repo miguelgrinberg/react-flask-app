@@ -10,4 +10,4 @@ As a user, I want the background colour of the application to be a more vibrant 
 
 ### Files to change
 
-- App.css
+- src/App.css

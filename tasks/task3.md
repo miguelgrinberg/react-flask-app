@@ -13,8 +13,8 @@ As a user, I want 2 movie recommendations whenever I add a new movie to my favou
 
 #### **Files to change**
 
-- recommend.py
-- rec.ipynb
+- api/recommend.py
+- notebooks/rec.ipynb
 
 #### **2. Create the API endpoint** 
 
@@ -28,4 +28,4 @@ Create an API endpoint in the api.py that returns the list of IMDB IDs of recomm
 
 #### **Files to change**
 
-- api.py
+- api/api.py

@@ -14,4 +14,4 @@ useEffect(() => {
 
 ### Files to change
 
-- App.js
+- src/App.js
