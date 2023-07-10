@@ -6,4 +6,5 @@ In case the limit is reached during the technical activity, replace the current 
 
 * Ece: 2651b0db (Current)
 * Jeenal: 87135056
-* Tushita: 6e84034d
+* Tushita 1: 6e84034d
+* Tushita 2: 375ed43e
