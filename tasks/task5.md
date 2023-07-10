@@ -33,5 +33,5 @@ const sortMovies = (movies) => {|
 ```
 ### Files to change
 
-- App.js
-- App.css
+- src/App.js
+- src/App.css

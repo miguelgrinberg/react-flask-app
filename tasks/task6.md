@@ -14,4 +14,4 @@ As a user, I'd like to have a larger poster when I hover on it.
 
 ### Files to change
 
-- App.css
+- src/App.css

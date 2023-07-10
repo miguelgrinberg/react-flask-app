@@ -9,4 +9,4 @@ As a user, I'd like to have a red heart icon when favoriting movies.
 
 ### Files to change
 
-- AddFavourites.js
+- src/components/AddFavourites.js

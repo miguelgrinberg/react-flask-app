@@ -8,8 +8,9 @@
 		"ghcr.io/devcontainers/features/python:1": {},
 		"ghcr.io/oleksis/devcontainer-features/python-launcher:1": {}
 	},
-
-	"postStartCommand": "yarn install && cd api && python3 -m venv venv && source venv/bin/activate && python3 -m pip install -r requirements.txt",
+	"waitFor": "onCreateCommand",
+	"updateContentCommand": "yarn install && cd api && python3 -m venv venv",
+	"postStartCommand": "",
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},

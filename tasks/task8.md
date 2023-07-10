@@ -33,5 +33,5 @@ Optionally, you can disable the automatic search that happens each time you type
 
 ### Files to change
 
-- App.js
-- components/SearchBox.js
+- src/App.js
+- src/components/SearchBox.js

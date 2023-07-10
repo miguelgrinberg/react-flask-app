@@ -19,5 +19,5 @@ As a user, I want the movie posters to have more space in between. Not too space
 
 ### Files to change
 
-- App.css
-- components/MovieList.js
+- src/App.css
+- src/components/MovieList.js
