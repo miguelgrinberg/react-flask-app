@@ -2,30 +2,16 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/typescript-node
 {
 	"name": "Node.js & TypeScript",
-	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/typescript-node:0-16",
+	"image": "mcr.microsoft.com/devcontainers/javascript-node:22",
 	"features": {
 		"ghcr.io/devcontainers/features/python:1": {},
 		"ghcr.io/oleksis/devcontainer-features/python-launcher:1": {}
 	},
 	"waitFor": "onCreateCommand",
 	"updateContentCommand": "yarn install && cd api && python3 -m venv venv",
-	"postStartCommand": "",
-
-	// Features to add to the dev container. More info: https://containers.dev/features.
-	// "features": {},
-
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
-
-	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "yarn install",
 
 	// Configure tool-specific properties.
 	"customizations": {
-		"codespaces": {
-      		"openFiles": []
-    	},
     	"vscode": {
       		"extensions": [
         		"ms-toolsai.jupyter",
@@ -33,7 +19,4 @@
       		]
     	}
 	}
-
-	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	// "remoteUser": "root"
 }
