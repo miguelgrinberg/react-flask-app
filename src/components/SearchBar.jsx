@@ -5,11 +5,9 @@ export default function SearchBar(props) {
     <>
       <IoMdSearch size={"25px"} color={"white"} />
       <input
-        onChange={(e) => {
-          props.setSearchValue(e.target.value);
-          console.log(e.target.value);
-        }} // TODO: Remove console.log
+        onChange={(e) => props.setSearchValue(e.target.value)}
         type="search"
+        value={props.search}
         className="focus:outline-none focus:caret-secondary w-[60%] bg-primary text-secondary placeholder:text-secondary"
         placeholder="Search Movie"
       />
