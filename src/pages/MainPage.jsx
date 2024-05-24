@@ -1,45 +1,52 @@
 import { useEffect, useState } from "react";
-import NavBar from "../components/NavBar";
-// import MovieService from "../services/MovieService";
-import { movies } from "../mocks/movies";
+import NavBar, { Tabs } from "../components/NavBar";
+import MovieService from "../services/MovieService";
+import { mockedMovies } from "../mocks/movies";
 import MovieCard from "../components/MovieCard";
-import useFavouriteMovies from "../context/FavouriteMoviesContext";
+import useMoviesContext from "../context/MoviesContext";
 import SearchBar from "../components/SearchBar";
 
 export default function MainPage() {
-  const moviesData = movies.Search;
+  const moviesData = mockedMovies.Search;
 
   const [search, setSearch] = useState("");
-  const { favouriteMovies } = useFavouriteMovies();
-  // const [movies, setMovies] = useState([]);
-
-  // useEffect(() => {
-  //   MovieService.getMoviesByName(search, 1)
-  //     .then((movies) => {
-  //       setMovies(movies.Search);
-  //     })
-  //     .catch((err) => console.log(err));
-  // }, [search]);
+  const { favouriteMovies, recommendedMovies } = useMoviesContext();
+  const [tabName, setTabName] = useState(Tabs.Movie);
+  const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    console.log(favouriteMovies);
-  }, [favouriteMovies]);
+    if (tabName !== Tabs.Movies) {
+      setTabName(Tabs.Movies);
+    }
+
+    MovieService.getMoviesByName(search)
+      .then((movies) => setMovies(movies.Search))
+      .catch((err) => console.log(err));
+  }, [search]);
 
   return (
     <div>
-      <NavBar>
-        <SearchBar setSearchValue={setSearch} />
+      <NavBar setTab={setTabName}>
+        <SearchBar setSearchValue={setSearch} search={search} />
       </NavBar>
       <div className="w-full flex flex-col">
         <h1 className="mt-8 mb-6 ml-12 text-bold text-2xl text-secondary">
-          Movies
+          {tabName}
         </h1>
         <div className="grid grid-cols-5">
-          {moviesData.length
+          {tabName === Tabs.Movies && moviesData.length
             ? moviesData.map((movie) => (
-                <div key={movie.Title} className="my-4 mx-4">
-                  <MovieCard movie={movie} />
-                </div>
+                <MovieCard movie={movie} key={movie.imdbID} />
+              ))
+            : null}
+          {tabName === Tabs.Favourites && favouriteMovies.length
+            ? favouriteMovies.map((movie) => (
+                <MovieCard movie={movie} key={movie.imdbID} />
+              ))
+            : null}
+          {tabName === Tabs.Recommended && recommendedMovies.length
+            ? recommendedMovies.map((movie) => (
+                <MovieCard movie={movie} key={movie.imdbID} />
               ))
             : null}
         </div>

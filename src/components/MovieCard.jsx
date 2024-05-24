@@ -1,33 +1,48 @@
 import { useEffect, useState } from "react";
-import { IoStar, IoStarOutline } from "react-icons/io5";
-import useFavouriteMovies from "../context/FavouriteMoviesContext";
+import useMoviesContext from "../context/MoviesContext";
+import FavouriteIcon from "./FavouriteIcon";
+import { Actions } from "../reducers/moviesReducer";
+import MovieService from "../services/MovieService";
 
 export default function MovieCard(props) {
-  const { Title, Year, Poster } = props.movie;
-  const [ isFavourite, setIsFavourite ] = useState(false);
-  const { favouriteMovies, addToFavourites, removeFromFavourites } = useFavouriteMovies();
+  const { Title, Year, Poster, imdbID } = props.movie;
+  const [isFavourite, setIsFavourite] = useState(false);
+  const { favouriteMovies, recommendedMovies, dispatch } = useMoviesContext();
 
   useEffect(() => {
-    const movieIsInFavourites = favouriteMovies.find((movie) => movie.Title === Title);
-
-    if (movieIsInFavourites) {
-      setIsFavourite(true);
-    } else {
-      setIsFavourite(false);
-    }
+    const movieIsInFavourites = !!favouriteMovies.find(
+      (movie) => movie.Title === Title
+    );
+    setIsFavourite(movieIsInFavourites);
   }, [isFavourite, Title]);
 
   const handleClick = () => {
     if (isFavourite) {
-      removeFromFavourites(props.movie);
+      const updatedFavourites = favouriteMovies.filter((currentFavouriteMovies) => imdbID !== currentFavouriteMovies.imdbID);
+      dispatch({
+        type: Actions.RemoveFromFavourites,
+        payload: { favouriteMovies: updatedFavourites },
+      });
     } else {
-      addToFavourites(props.movie);
+      dispatch({
+        type: Actions.AddToFavourites,
+        payload: { favouriteMovies: [...favouriteMovies, props.movie] },
+      });
+
+      MovieService.getRecommendedMovies(imdbID)
+        .then((movies) => {
+          dispatch({
+            type: Actions.AddToRecommended,
+            payload: { recommendedMovies: [...recommendedMovies, movies] },
+          });
+        })
+        .catch((err) => console.log(err));
     }
     setIsFavourite(!isFavourite);
   };
 
   return (
-    <div className="flex flex-col align-middle">
+    <div className="my-4 mx-4 flex flex-col align-middle">
       <div className="self-center">
         <div className="flex flex-col items-center">
           <img src={Poster} className="w-48 h-[15rem] shadow-2xl" />
@@ -36,15 +51,7 @@ export default function MovieCard(props) {
             onClick={handleClick}
             className="relative top-[-35px]"
           >
-            {isFavourite ? (
-              <IoStar size="30px" color="gold" />
-            ) : (
-              <IoStarOutline
-                size="30px"
-                color="gold"
-                className="opacity-75 hover:opacity-100"
-              />
-            )}
+            <FavouriteIcon isFavourite={isFavourite} />
           </button>
         </div>
         <div className="relative top-[-20px] text-center">

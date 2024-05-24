@@ -1,4 +1,4 @@
-export const movies = 
+export const mockedMovies = 
 {
   "Search": [
       {
