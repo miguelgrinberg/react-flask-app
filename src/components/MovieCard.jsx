@@ -6,13 +6,11 @@ import MovieService from "../services/MovieService";
 
 export default function MovieCard(props) {
   const { Title, Year, Poster, imdbID } = props.movie;
-  const [isFavourite, setIsFavourite] = useState(false);
+  const [ isFavourite, setIsFavourite ] = useState(false);
   const { favouriteMovies, recommendedMovies, dispatch } = useMoviesContext();
 
   useEffect(() => {
-    const movieIsInFavourites = !!favouriteMovies.find(
-      (movie) => movie.Title === Title
-    );
+    const movieIsInFavourites = !!favouriteMovies.find((movie) => movie.Title === Title);
     setIsFavourite(movieIsInFavourites);
   }, [isFavourite, Title]);
 
@@ -33,7 +31,7 @@ export default function MovieCard(props) {
         .then((movies) => {
           dispatch({
             type: Actions.AddToRecommended,
-            payload: { recommendedMovies: [...recommendedMovies, movies] },
+            payload: { recommendedMovies: [...recommendedMovies, ...movies] },
           });
         })
         .catch((err) => console.log(err));

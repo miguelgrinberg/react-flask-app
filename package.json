@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "vite",
-    "start-api": "cd api && venv/bin/flask run --no-debugger",
+    "start-api": "cd api && venv/bin/flask run --port 3000 --no-debugger",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
