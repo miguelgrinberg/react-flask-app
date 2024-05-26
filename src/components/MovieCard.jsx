@@ -28,10 +28,10 @@ export default function MovieCard(props) {
       });
 
       MovieService.getRecommendedMovies(imdbID)
-        .then((movies) => {
+        .then((movie) => {
           dispatch({
             type: Actions.AddToRecommended,
-            payload: { recommendedMovies: [...recommendedMovies, ...movies] },
+            payload: { recommendedMovies: [...recommendedMovies, movie] },
           });
         })
         .catch((err) => console.log(err));
