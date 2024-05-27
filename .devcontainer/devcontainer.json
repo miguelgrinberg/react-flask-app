@@ -9,7 +9,7 @@
 	},
 	"waitFor": "onCreateCommand",
 	"updateContentCommand": "yarn install && cd api && python3 -m venv venv",
-	"postStartCommand": "sudo bash /workspaces/react-flask-app/.devcontainer/populate_env.sh",
+	"postStartCommand": "chmod +x .devcontainer/populate_env.sh && ./.devcontainer/populate_env.sh",
 
 	// Configure tool-specific properties.
 	"customizations": {
