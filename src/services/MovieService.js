@@ -1,14 +1,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: import.meta.env.VITE_CODESPACE_NAME
-    ? import.meta.env.VITE_CODESPACE_NAME
-    : "http://localhost:3000/",
-  headers: {
-    "X-GitHub-Token": import.meta.env.VITE_GITHUB_TOKEN
-      ? import.meta.env.VITE_GITHUB_TOKEN
-      : "",
-  },
+  baseURL: import.meta.env.VITE_CODESPACE_NAME ? import.meta.env.VITE_CODESPACE_NAME : "http://localhost:3000/",
 });
 
 const responseBody = (response) => response.data;
