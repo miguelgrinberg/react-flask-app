@@ -5,10 +5,15 @@
 	"image": "mcr.microsoft.com/devcontainers/javascript-node:22",
 	"features": {
 		"ghcr.io/devcontainers/features/python:1": {},
-		"ghcr.io/oleksis/devcontainer-features/python-launcher:1": {}
+		"ghcr.io/oleksis/devcontainer-features/python-launcher:1": {},
+		"ghcr.io/devcontainers/features/github-cli:1": {}
 	},
 	"waitFor": "onCreateCommand",
 	"updateContentCommand": "yarn install && cd api && python3 -m venv venv",
+
+	// https://github.com/orgs/community/discussions/15351#discussioncomment-3777595
+	"postAttachCommand": "/bin/bash .devcontainer/setup.sh",
+	"forwardPorts": [3000, 8080],
 
 	// Configure tool-specific properties.
 	"customizations": {

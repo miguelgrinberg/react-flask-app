@@ -1,22 +1,24 @@
 import { useEffect, useState } from "react";
 import NavBar, { Tabs } from "../components/NavBar";
 import MovieService from "../services/MovieService";
-import { mockedMovies } from "../mocks/movies";
 import MovieCard from "../components/MovieCard";
 import useMoviesContext from "../context/MoviesContext";
 import SearchBar from "../components/SearchBar";
 
 export default function MainPage() {
-  const moviesData = mockedMovies.Search;
 
-  const [search, setSearch] = useState("");
+  const [ search, setSearch ] = useState("");
   const { favouriteMovies, recommendedMovies } = useMoviesContext();
-  const [tabName, setTabName] = useState(Tabs.Movie);
-  const [movies, setMovies] = useState([]);
+  const [ tabName, setTabName ] = useState(Tabs.Movie);
+  const [ movies, setMovies ] = useState([]);
 
   useEffect(() => {
     if (tabName !== Tabs.Movies) {
       setTabName(Tabs.Movies);
+    }
+
+    if (search.length < 3) {
+      return;
     }
 
     MovieService.getMoviesByName(search)
@@ -34,17 +36,17 @@ export default function MainPage() {
           {tabName}
         </h1>
         <div className="grid grid-cols-5">
-          {tabName === Tabs.Movies && moviesData.length
-            ? moviesData.map((movie) => (
+          {tabName === Tabs.Movies && movies?.length
+            ? movies.map((movie) => (
                 <MovieCard movie={movie} key={movie.imdbID} />
               ))
             : null}
-          {tabName === Tabs.Favourites && favouriteMovies.length
+          {tabName === Tabs.Favourites && favouriteMovies?.length
             ? favouriteMovies.map((movie) => (
                 <MovieCard movie={movie} key={movie.imdbID} />
               ))
             : null}
-          {tabName === Tabs.Recommended && recommendedMovies.length
+          {tabName === Tabs.Recommended && recommendedMovies?.length
             ? recommendedMovies.map((movie) => (
                 <MovieCard movie={movie} key={movie.imdbID} />
               ))

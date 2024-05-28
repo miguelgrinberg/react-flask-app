@@ -4,7 +4,7 @@ import moviesReducer, { initialState } from "../reducers/moviesReducer";
 const MoviesContext = createContext(initialState);
 
 export const MoviesProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(moviesReducer, initialState);
+  const [ state, dispatch ] = useReducer(moviesReducer, initialState);
 
   const value = {
     favouriteMovies: state.favouriteMovies,
