@@ -8,3 +8,5 @@ Nik
 ## Tips
 
 Tailwind comes with some pre-defined animations out of the box, see what comes up when you type: "animate-"
+
+Useful resource [here](https://tailwindcss.com/docs/animation)

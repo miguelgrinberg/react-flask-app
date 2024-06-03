@@ -6,4 +6,4 @@ Jeenal
 
 ## Tips
 
-Take a look at MainPage.jsx and search for h1 (heading).
+Take a look at [MainPage](../src/pages/MainPage.jsx) and search for `h1` (heading).

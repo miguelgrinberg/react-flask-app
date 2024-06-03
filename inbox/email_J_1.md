@@ -7,8 +7,10 @@ Jeenal
 
 ## Tips
 
-On the MainPage.jsx, look for this line:
+On the [MainPage](../src/pages/MainPage.jsx), look for this line:
 
-    <div className="grid grid-cols-1">
+`<div className="grid grid-cols-1">`
 
 This specifies that the layout of the movies should be in a grid format, with 1 column
+
+Useful resource [here](https://tailwindcss.com/docs/grid-template-columns)
