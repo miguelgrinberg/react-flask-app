@@ -41,7 +41,7 @@ export default function MovieCard(props) {
 
   return (
     <div className="my-4 mx-4 flex flex-col align-middle">
-      <div className="self-center">
+      <div className="self-center flex items-center">
         <div className="flex flex-col items-center">
           <img src={Poster} className="w-48 h-[15rem] shadow-2xl" />
           <button
@@ -53,8 +53,8 @@ export default function MovieCard(props) {
           </button>
         </div>
         <div className="relative top-[-20px] text-center">
-          <h1 className="text-sm text-secondary">{Title}</h1>
-          <p className="text-xs text-accent">{Year}</p>
+          <h1 className="text-3xl text-secondary">{Title}</h1>
+          <p className="text-3xl text-accent">{Year}</p>
         </div>
       </div>
     </div>
