@@ -58,6 +58,9 @@ export default function MovieCard(props) {
           <h1 className="text-3xl text-secondary">{Title}</h1>
           <p className="text-3xl text-accent">{Year}</p>
         </div>
+        {showDetails && (
+          <MovieDetails movie={props.movie} onClose={() => setShowDetails(false)} />
+)} 
       </div>
     </div>
   );
