@@ -3,11 +3,13 @@ import useMoviesContext from "../context/MoviesContext";
 import FavouriteIcon from "./FavouriteIcon";
 import { Actions } from "../reducers/moviesReducer";
 import MovieService from "../services/MovieService";
+import MovieDetails from "./MovieDetails";
 
 export default function MovieCard(props) {
   const { Title, Year, Poster, imdbID } = props.movie;
   const [ isFavourite, setIsFavourite ] = useState(false);
   const { favouriteMovies, recommendedMovies, dispatch } = useMoviesContext();
+  const [showDetails, setShowDetails] = useState(false);
 
   useEffect(() => {
     const movieIsInFavourites = !!favouriteMovies.find((movie) => movie.Title === Title);
@@ -42,7 +44,7 @@ export default function MovieCard(props) {
   return (
     <div className="my-4 mx-4 flex flex-col align-middle">
       <div className="self-center flex items-center">
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center" onClick={() => setShowDetails(true)}>
           <img src={Poster} className="w-48 h-[15rem] shadow-2xl" />
           <button
             type="button"

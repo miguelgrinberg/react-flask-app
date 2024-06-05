@@ -24,3 +24,9 @@ def get_movies_by_id(searchValue):
     url = "http://www.omdbapi.com/?i=" + str(searchValue) + "&apikey=2651b0db"
     response = requests.get(url=url)
     return response.json()
+
+@app.route('/movie/<imdbID>')
+def get_movie_details(imdbID):
+    url = "http://www.omdbapi.com/?i=" + str(imdbID) + "&plot=full&apikey=2651b0db"
+    response = requests.get(url=url)
+    return response.json()
