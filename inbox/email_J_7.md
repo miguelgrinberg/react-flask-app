@@ -6,3 +6,6 @@ Jeenal
 
 ## Tips
 Check the [api call](https://www.omdbapi.com/?i=tt0076759&plot=full&apikey=2651b0db&plot) being made for a movie with id=tt0076759 and see if these details are available.
+
+
+Alternatively, you can inspect the requests sent to the server when a movie details are displayed to find out all the details available. We only display some of them!
