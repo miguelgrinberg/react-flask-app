@@ -14,7 +14,7 @@ pip install -r requirements.txt
 yarn start-api
 ```
 
-## Start React App
+## Start React App (in a new terminal)
 ```
 yarn start
 ```

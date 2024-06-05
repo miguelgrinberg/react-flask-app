@@ -6,7 +6,7 @@ Jeenal
 
 ## Tips
 
-There's already a pre-made [MovieDetails](../src/components/MovieDetails.jsx) in the Components folder. 
+There's already a pre-made [MovieDetails](../src/components/MovieDetails.jsx) component in the Components folder. 
 
 It could be conditionally rendered when a movie poster is clicked on.
 
