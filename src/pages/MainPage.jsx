@@ -19,7 +19,7 @@ export default function MainPage() {
       setTabName(Tabs.Movies);
     }
 
-    if (search.length < 3) {
+    if (search.length < 0) {
       return;
     }
 
