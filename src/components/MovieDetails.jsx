@@ -29,7 +29,7 @@ export default function MovieDetails({ onClose, imdbID }) {
               </div>
             </div>
           </div>
-          <div>
+          <div className="overflow-hidden">
             <p className="text-secondary text-[13px]">{details?.Plot}</p>
           </div>
         </div>
