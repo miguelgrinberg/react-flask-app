@@ -1,30 +1,39 @@
 import React, { useEffect, useState } from "react";
-import MovieService from "../services/MovieService";
+import { mockedMovieDetails } from "../mocks/movieDetails";
+import { IoStar } from "react-icons/io5";
 
+export default function MovieDetails({ onClose, imdbID }) {
+  const [details, setDetails] = useState(null);
 
-export default function MovieDetails(props) {
-    const [details, setDetails] = useState("");
+  const preventActionOnClick = (e) => {
+    e.stopPropagation();
+  };
 
-    useEffect(() => {
-      MovieService.getMovieDetails(props.movie.imdbID)
-      .then((movie) => setDetails(movie))
-      .catch((error) => console.log(error))
-  }, [props.movie.imdbID]);
+  useEffect(() => {
+    setTimeout(() => setDetails(mockedMovieDetails), 200);
+  }, [imdbID]);
 
-  return (
-    <div className="fixed inset-0 z-50 bg-gray-900 bg-opacity-75 flex justify-center items-center text-secondary">
-        <div className="p-4 bg-inherit flex flex-col justify-center align-middle ">
-          <h2 className="text-xl font-bold text-secondary text-center">{props.movie.Title}</h2>
-          <p className="text-sm text-center">{props.movie.Year}</p>
-          <br />
-          <p className="text-sm text-center">Plot: {details.Plot}</p>
-          <p className="text-sm text-center">Genre: {details.Genre}</p>
-          <br />
-          <p className="text-sm text-center">IMDb Rating: {details.imdbRating}</p>
-          <button className="mt-4 px-4 py-2 w-[50%] m-auto align-middle justify-center bg-primary text-white rounded hover:bg-blue-700" onClick={props.onClose}>
-            <p>Close</p>
-          </button>
+  return details ? (
+    <div className="fixed inset-0 z-50 bg-black/60 flex justify-center items-center align-middle text-secondary" onClick={onClose}>
+      <div className="h-96 flex" onClick={preventActionOnClick}>
+        <img src={details?.Poster} className="w-60" />
+        <div className="w-96 flex flex-col justify-between p-4 bg-background">
+          <div>
+            <h1 className="text-2xl mb-5">{details?.Title}</h1>
+            <div className="flex flex-row justify-between text-xs mb-5 text-center align-middle items-center">
+              <h3 className="text-primary">{details?.Genre}</h3>
+              <div className="flex flex-row gap-2 items-center text-accent select-none">
+                <span className="bg-black/20 p-2 rounded-lg flex items-center"><IoStar color="gold"/>{details?.imdbRating}/10</span>
+                <h3 className="bg-black/20 p-2 rounded-lg">{details?.Rated}</h3>
+                <h3 className="bg-black/20 p-2 rounded-lg">{details?.Runtime}</h3>
+              </div>
+            </div>
+          </div>
+          <div>
+            <p className="text-secondary text-[13px]">{details?.Plot}</p>
+          </div>
         </div>
+      </div>
     </div>
-  );
-};
+  ) : null;
+}
