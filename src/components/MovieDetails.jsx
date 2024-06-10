@@ -24,8 +24,6 @@ export default function MovieDetails({ onClose, imdbID }) {
               <h3 className="text-primary">{details?.Genre}</h3>
               <div className="flex flex-row gap-2 items-center text-accent select-none">
                 <span className="bg-black/20 p-2 rounded-lg flex items-center"><IoStar color="gold"/>{details?.imdbRating}/10</span>
-                <h3 className="bg-black/20 p-2 rounded-lg">{details?.Rated}</h3>
-                <h3 className="bg-black/20 p-2 rounded-lg">{details?.Runtime}</h3>
               </div>
             </div>
           </div>
