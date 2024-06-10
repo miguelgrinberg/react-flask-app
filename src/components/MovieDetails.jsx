@@ -10,7 +10,7 @@ export default function MovieDetails({ onClose, imdbID }) {
   };
 
   useEffect(() => {
-    setTimeout(() => setDetails(mockedMovieDetails), 200);
+    setDetails(mockedMovieDetails)
   }, [imdbID]);
 
   return details ? (
