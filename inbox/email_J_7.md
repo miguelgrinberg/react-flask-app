@@ -1,11 +1,16 @@
 Hi Team,
 
-Our users have started sending in requests to understand whether the movie is rated G, PG..... and they also want some more information on how long the movie is. Could you take a look and see if it is possible to display these details?
+The icon to favourite movies is misleading, let's change it from a red heart to a gold star.
 
 Jeenal
 
 ## Tips
-Check the [api call](https://www.omdbapi.com/?i=tt0076759&plot=full&apikey=2651b0db&plot) being made for a movie with id=tt0076759 and see if these details are available.
 
+Look at [FavouriteIcon.jsx](../src/components/FavouriteIcon.jsx),
 
-Alternatively, you can inspect the requests sent to the server when a movie details are displayed to find out all the details available. We only display some of them!
+- When a movie isn't in favourite's, it should be outlined 
+- When a movie is in favourites, it should be filled.
+
+Go to [this](https://react-icons.github.io/react-icons/) website and look for 2 Star icons (one outlied and one filled). 
+
+Click on the icon for a guide on how to import them.

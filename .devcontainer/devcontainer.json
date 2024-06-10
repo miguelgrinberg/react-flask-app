@@ -22,7 +22,12 @@
         		"ms-toolsai.jupyter",
         		"ms-python.python",
 						"bradlc.vscode-tailwindcss"
-      		]
+      		],
+					"settings": {
+						"workbench.editorAssociations": {
+							"*.md": "vscode.markdown.preview.editor"
+						}
+					}
     	}
 	}
 }

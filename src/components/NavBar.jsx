@@ -1,6 +1,6 @@
 export const Tabs = Object.freeze({
   Movies: "Movies",
-  Favourites: "Favourites",
+  Favourites: "Favorites",
   Recommended: "Recommended",
 });
 
