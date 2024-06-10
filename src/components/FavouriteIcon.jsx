@@ -1,12 +1,12 @@
-import { IoStar, IoStarOutline } from "react-icons/io5";
+import { IoHeart, IoHeartOutline } from "react-icons/io5";
 
 export default function FavouriteIcon(props) {
   return props.isFavourite ? (
-    <IoStar size="30px" color="gold" />
+    <IoHeart size="30px" color="red" />
   ) : (
-    <IoStarOutline
+    <IoHeartOutline
       size="30px"
-      color="gold"
+      color="red"
       className="opacity-75 hover:opacity-100"
     />
   );
