@@ -26,6 +26,9 @@
 					"settings": {
 						"workbench.editorAssociations": {
 							"*.md": "vscode.markdown.preview.editor"
+						},
+						"editor.quickSuggestions": {
+							"strings": "on"
 						}
 					}
     	}
