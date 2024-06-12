@@ -11,7 +11,7 @@ There's already a pre-made [MovieDetails](../src/components/MovieDetails.jsx) co
 It could be conditionally rendered when a movie poster is clicked on.
 
 ```
-{showDetails ? (
+{showDetails && (
   <MovieDetails imdbID={imdbID} onClose={handleMovieDetailsClose} />
-) : null}
+)}
 ```
