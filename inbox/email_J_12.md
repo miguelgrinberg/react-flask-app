@@ -12,7 +12,13 @@ There's already a pre-made [Search](../src/components/SearchBar.jsx) in the Comp
         <Insert Component Here>
     </NavBar>`
 
-To get the SearchBar working, on the main page, you will see a function that is commented out:
+Search requires a function to be passed into it to work, the syntax is as follows:
+
+<Search setSearch={}>
+
+Can you figure out which function it requires passed into the curly brackets?
+
+And then finally, to get the SearchBar working, on the main page, you will see a function that is commented out:
 
 `setMovies(moviesData.filter())`
 
