@@ -8,7 +8,7 @@ export default function SearchBar(props) {
         onChange={(e) => props.setSearch(e.target.value)}
         type="search"
         value={props.search}
-        className="focus:outline-none focus:caret-secondary w-[60%] bg-primary text-secondary placeholder:text-secondary"
+        className="w-[60%] bg-primary text-secondary placeholder:text-secondary focus:caret-secondary focus:outline-none"
         placeholder="Search Movie"
       />
     </>

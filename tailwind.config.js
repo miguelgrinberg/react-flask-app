@@ -7,25 +7,19 @@
 // accent (secondary text) #9CA3AF
 
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{svelte,js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{svelte,js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      fontFamily:{
-        sans: [
-          "Arial"
-        ]
+      fontFamily: {
+        sans: ["Arial"],
       },
       colors: {
         background: "#222B31",
         primary: "#FF424F",
         secondary: "#FFFFFF",
-        accent: "#9CA3AF"
-      }
+        accent: "#9CA3AF",
+      },
     },
   },
   plugins: ["prettier-plugin-tailwindcss"],
-}
-
+};
