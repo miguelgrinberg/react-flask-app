@@ -1,3 +1,5 @@
+import useMoviesContext from "../context/MoviesContext";
+
 export const Tabs = Object.freeze({
   Movies: "Movies",
   Favourites: "Favorites",
@@ -5,12 +7,14 @@ export const Tabs = Object.freeze({
 });
 
 export default function NavBar(props) {
+  const { setTab } = useMoviesContext();
+
   return (
     <nav className="bg-primary w-full grid grid-cols-7 items-center justify-between h-12">
 
       <div className="col-span-1">
         <header>
-          <h1 className="font-bold text-secondary text-center select-none" onClick={() => props.setTab(Tabs.Movies)}>
+          <h1 className="font-bold text-secondary text-center select-none" onClick={() => setTab(Tabs.Movies)}>
             Movie App
           </h1>
         </header>
@@ -21,10 +25,10 @@ export default function NavBar(props) {
       </div>
 
       <div className="flex flex-row gap-20 col-span-3 justify-center text-secondary">
-        <button className="hover:underline-offset-[17px] hover:underline" onClick={() => props.setTab(Tabs.Favourites)}>
+        <button className="hover:underline-offset-[17px] hover:underline" onClick={() => setTab(Tabs.Favourites)}>
           {Tabs.Favourites}
         </button>
-        <button className="hover:underline-offset-[17px] hover:underline" onClick={() => props.setTab(Tabs.Recommended)}>
+        <button className="hover:underline-offset-[17px] hover:underline" onClick={() => setTab(Tabs.Recommended)}>
           {Tabs.Recommended}
         </button>
       </div>
