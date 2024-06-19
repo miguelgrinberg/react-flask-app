@@ -1,14 +1,18 @@
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useContext, useReducer, useState } from "react";
 import moviesReducer, { initialState } from "../reducers/moviesReducer";
+import { Tabs } from "../components/NavBar";
 
 const MoviesContext = createContext(initialState);
 
 export const MoviesProvider = ({ children }) => {
   const [ state, dispatch ] = useReducer(moviesReducer, initialState);
+  const [ tab, setTab ] = useState(Tabs.Movie);
 
   const value = {
     favouriteMovies: state.favouriteMovies,
     recommendedMovies: state.recommendedMovies,
+    currentTab: tab,
+    setTab: setTab,
     dispatch,
   };
 
