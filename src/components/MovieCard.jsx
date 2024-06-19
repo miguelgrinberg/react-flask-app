@@ -29,19 +29,12 @@ export default function MovieCard(props) {
   }, [isFavourite, Title]);
 
   const handleClick = () => {
-    if (isFavourite) {
-      const updatedFavourites = favouriteMovies.filter((currentFavouriteMovies) => imdbID !== currentFavouriteMovies.imdbID);
-      dispatch({
-        type: Actions.RemoveFromFavourites,
-        payload: { favouriteMovies: updatedFavourites },
-      });
-    } else {
-      dispatch({
-        type: Actions.AddToFavourites,
-        payload: { favouriteMovies: [...favouriteMovies, props.movie] },
-      });
-
-      MovieService.getRecommendedMovies(imdbID)
+    dispatch({
+        type: Actions.UpdateFavourites,
+        payload: props.movie
+     })
+    
+    MovieService.getRecommendedMovies(imdbID)
         .then((movie) => {
           dispatch({
             type: Actions.AddToRecommended,
@@ -49,7 +42,7 @@ export default function MovieCard(props) {
           });
         })
         .catch((err) => console.log(err));
-    }
+
     setIsFavourite(!isFavourite);
   };
 

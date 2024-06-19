@@ -1,29 +1,22 @@
 export const initialState = {
   favouriteMovies: [],
-  recommendedMovies: []
+  recommendedMovies: [],
 };
 
 export const Actions = Object.freeze({
-  AddToFavourites: "add_to_favourites",
-  RemoveFromFavourites: "remove_from_favourites",
   AddToRecommended: "add_to_recommended",
-  RemoveFromRecommended: "remove_from_recommended"
+  RemoveFromRecommended: "remove_from_recommended",
+  UpdateFavourites: "update_favourites"
 });
 
 const moviesReducer = (state, action) => {
   const { type, payload } = action;
 
   switch (type) {
-    case Actions.AddToFavourites:
+    case Actions.UpdateFavourites:
       return {
         ...state,
-        favouriteMovies: payload.favouriteMovies,
-      };
-
-    case Actions.RemoveFromFavourites:
-      return {
-        ...state,
-        favouriteMovies: payload.favouriteMovies,
+        favouriteMovies: state.favouriteMovies.map(movie => movie.imdbID).includes(payload.imdbID) ? state.favouriteMovies.filter(movie => movie.imdbID !== payload.imdbID) : [...state.favouriteMovies, payload]
       };
     case Actions.AddToRecommended:
       return {
