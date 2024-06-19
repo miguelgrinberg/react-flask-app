@@ -31,7 +31,6 @@ export default function MainPage() {
 
   return (
   <div>
-    <NavBar />
     <div className="w-full flex flex-col">
         <h1 className="mt-8 mb-6 ml-12 text-bold text-7xl text-secondary text-center">
           {currentTab}

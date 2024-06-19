@@ -34,15 +34,6 @@ export default function MovieCard(props) {
         payload: props.movie
      })
     
-    MovieService.getRecommendedMovies(imdbID)
-        .then((movie) => {
-          dispatch({
-            type: Actions.AddToRecommended,
-            payload: { recommendedMovies: [...recommendedMovies, movie] },
-          });
-        })
-        .catch((err) => console.log(err));
-
     setIsFavourite(!isFavourite);
   };
 
