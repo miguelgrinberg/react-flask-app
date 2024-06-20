@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { mockedMovieDetails } from "../mocks/movieDetails";
 import { IoStar } from "react-icons/io5";
+import MovieService from "../services/MovieService";
 
 export default function MovieDetails({ onClose, imdbID }) {
   const [details, setDetails] = useState(null);

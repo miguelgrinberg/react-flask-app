@@ -1,6 +1,6 @@
 Hi Team,
 
-It would be useful to start getting some more information about the movies in addition to the title and the year. Please could you look into adding more details about each movie?
+a new feature is being requested where we need to display details when a user clicks on a movie.
 
 Jeenal
 
@@ -8,10 +8,14 @@ Jeenal
 
 There's already a pre-made [MovieDetails](../src/components/MovieDetails.jsx) component in the Components folder. 
 
-It could be conditionally rendered when a movie poster is clicked on.
+To use this component we need to go to [MovieCard.jsx](../src/components/MovieCard.jsx), on line 54 we have a conditional render.
 
-```
-{showDetails && (
-  <MovieDetails imdbID={imdbID} onClose={handleMovieDetailsClose} />
-)}
-```
+What this is saying is when showDetails equals true, do what ever is after "&&", currently it does nothing (null).
+
+In our case we want to display this component:
+
+`<MovieDetails imdbID={} onClose={}/>`
+
+Inside the curly braces of imdbID, we need to pass in the ID of the movie.
+
+Inside the curly branches of onClose, we need to pass in the function that handles closing the movie details component. (Look at the top of MovieCard.jsx for the function that sets showDetails to false)

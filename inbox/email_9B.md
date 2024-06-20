@@ -10,7 +10,9 @@ On the main page, you will see a function that is commented out:
 
 `setMovies(moviesData.filter())`
 
-If this code is commented out, it will run everytime something is typed into the search bar. The filter method takes a function and runs it against the array of movies. To find out more, look [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
+In JavaScript, when you see `// some comment`, it means that this code will not run. By removing //, the code will run.
+
+The filter method takes a function and runs it against the array of movies. To find out more, look [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
 
 Can you create a function, that filters through the list of movies, but only keeps the movies that contain the search term entered in the search bar?
 
