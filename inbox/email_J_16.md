@@ -1,6 +1,6 @@
 Hi Team,
 
-Just a thought, as a stretch, please can you quickly check if OMDB API provides the ability to not just search for movies but series as well?
+OMDb is quite expensive. To utilise all its features, please can you quickly check if OMDB API provides the ability to not just search for movies but series as well?
 
 Want a proof of concept though not a final implementation, let me know if this is possible. 
  
