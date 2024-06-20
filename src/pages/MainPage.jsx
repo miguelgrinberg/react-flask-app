@@ -5,11 +5,13 @@ import MovieCard from "../components/MovieCard";
 import NavBar from "../components/NavBar";
 import useMoviesContext from "../context/MoviesContext";
 import { mockedMovies } from "../mocks/movies";
+import { Actions } from "../reducers/moviesReducer";
+
 
 export default function MainPage() {
   const moviesData = mockedMovies.Search;
   const [search, setSearch] = useState("");
-  const { favouriteMovies, recommendedMovies, currentTab, setTab } = useMoviesContext();
+  const { favouriteMovies, recommendedMovies, currentTab, setTab, dispatch } = useMoviesContext();
   const [movies, setMovies] = useState(moviesData);
 
   useEffect(() => {

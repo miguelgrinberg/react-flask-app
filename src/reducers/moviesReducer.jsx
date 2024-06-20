@@ -23,13 +23,13 @@ const moviesReducer = (state, action) => {
     case Actions.AddToRecommended:
       return {
         ...state,
-        recommendedMovies: payload.recommendedMovies,
+        recommendedMovies: [payload]
       };
 
     case Actions.RemoveFromRecommended:
       return {
         ...state,
-        recommendedMovies: payload.recommendedMovies,
+        recommendedMovies: [payload]
       };
 
     default:
