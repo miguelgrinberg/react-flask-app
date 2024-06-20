@@ -5,8 +5,8 @@ import { Tabs } from "../components/NavBar";
 const MoviesContext = createContext(initialState);
 
 export const MoviesProvider = ({ children }) => {
-  const [ state, dispatch ] = useReducer(moviesReducer, initialState);
-  const [ tab, setTab ] = useState(Tabs.Movie);
+  const [state, dispatch] = useReducer(moviesReducer, initialState);
+  const [tab, setTab] = useState(Tabs.Movie);
 
   const value = {
     favouriteMovies: state.favouriteMovies,
@@ -16,9 +16,7 @@ export const MoviesProvider = ({ children }) => {
     dispatch,
   };
 
-  return (
-    <MoviesContext.Provider value={value}>{children}</MoviesContext.Provider>
-  );
+  return <MoviesContext.Provider value={value}>{children}</MoviesContext.Provider>;
 };
 
 function useMoviesContext() {

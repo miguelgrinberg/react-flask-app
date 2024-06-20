@@ -7,16 +7,16 @@ import MovieDetails from "./MovieDetails";
 
 export default function MovieCard(props) {
   const { Title, Year, Poster, imdbID } = props.movie;
-  const [ isFavourite, setIsFavourite ] = useState(false);
-  const [ showDetails, setShowDetails ] = useState(false);
+  const [isFavourite, setIsFavourite] = useState(false);
+  const [showDetails, setShowDetails] = useState(false);
   const { favouriteMovies, recommendedMovies, dispatch } = useMoviesContext();
-  
+
   const handleMovieDetailsClose = () => {
-    setShowDetails(false)
+    setShowDetails(false);
   };
 
   const handleMovieDetailsOpen = () => {
-    setShowDetails(true)
+    setShowDetails(true);
   };
 
   const preventActionOnClick = (e) => {
@@ -30,19 +30,19 @@ export default function MovieCard(props) {
 
   const handleClick = () => {
     dispatch({
-        type: Actions.UpdateFavourites,
-        payload: props.movie
-     })
-    
+      type: Actions.UpdateFavourites,
+      payload: props.movie,
+    });
+
     setIsFavourite(!isFavourite);
   };
 
   return (
-    <div className="my-4 mx-4 flex flex-col align-middle">
-      <div className="self-center flex items-center">
-        <div className="flex flex-col items-center" >
-          <img src={Poster} className="w-48 h-[15rem] shadow-2xl hover:scale-105" onClick={handleMovieDetailsOpen}/>
-          <button type="button" onClick={handleClick} className="relative top-[-35px]" >
+    <div className="mx-4 my-4 flex flex-col align-middle">
+      <div className="flex items-center self-center">
+        <div className="flex flex-col items-center">
+          <img src={Poster} className="h-[15rem] w-48 shadow-2xl hover:scale-105" onClick={handleMovieDetailsOpen} />
+          <button type="button" onClick={handleClick} className="relative top-[-35px]">
             <FavouriteIcon onClick={preventActionOnClick} isFavourite={isFavourite} />
           </button>
         </div>
