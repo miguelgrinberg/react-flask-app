@@ -12,8 +12,7 @@ const methods = {
 
 const MovieService = {
   getMoviesByName: (movieName) => methods.get("/movies/" + movieName),
-  getRecommendedMovies: (imdbID) => methods.get("/movies/recommend/" + imdbID),
-  getMovieDetails: (imdbID) => methods.get("/movie/" + imdbID)
+  getMovieDetails: (imdbID) => methods.get("/movie/" + imdbID),
 };
 
 export default MovieService;
