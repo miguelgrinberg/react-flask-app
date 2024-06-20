@@ -8,9 +8,7 @@ Jeenal
 
 ## Tips
 
-Check out the api code written in Python in [api.py](api/api.py), line 18
-
-The block of code from line 18 - 22 defines a method written in Python. This is used to get information from the Open Movie Database (OMDb). 
+Check out the api code written in Python in [api.py](api/api.py), line 18. The block of code from line 18 - 22 defines a method written in Python. This is used to get information from the Open Movie Database (OMDb). 
 
 Methods are a few lines of code used to perform a specific task.
 
