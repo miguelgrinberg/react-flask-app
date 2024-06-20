@@ -30,4 +30,16 @@ Next, we need to be able to add a movie to the reccommended tab. There is a "dis
   }}>Random!</button>
 ```
 
-Can you figure out how we randomnly select one of the mock movies to display?
+Where we see "CODE GOES HERE" we need to put in the random movie choice. For example, if we wanted to choose the first item in the list of movies, we could just do this:
+
+```
+<button className="p-2 bg-red-300 w-20" onClick={() => {
+      dispatch(
+        {
+          type: Actions.AddToRecommended,
+          payload: moviesData[0]
+        })
+  }}>Random!</button>
+```
+
+This selects the first item in the array of movies. How would we change this so it's always a random movie?
