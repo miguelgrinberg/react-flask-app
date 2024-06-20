@@ -51,6 +51,7 @@ export default function MovieCard(props) {
           <p className="text-3xl text-accent">{Year}</p>
         </div>
       </div>
+      {showDetails && null}
     </div>
   );
 }
