@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Tabs } from "../components/NavBar";
 import MovieService from "../services/MovieService";
 import MovieCard from "../components/MovieCard";
-import NavBar from "../components/NavBar";
 import useMoviesContext from "../context/MoviesContext";
 import { mockedMovies } from "../mocks/movies";
 import { Actions } from "../reducers/moviesReducer";
@@ -39,7 +38,7 @@ export default function MainPage() {
             ? movies.map((movie) => <MovieCard movie={movie} key={movie.imdbID} />)
             : null}
           {currentTab === Tabs.Favourites && favouriteMovies?.length
-            ? favouriteMovies.map((movie) => <MovieCard movie={movie} key={movie.imdbID} />)
+            ? recommendedMovies.map((movie) => <MovieCard movie={movie} key={movie.imdbID} />)
             : null}
           {currentTab === Tabs.Recommended && recommendedMovies?.length
             ? recommendedMovies.map((movie) => <MovieCard movie={movie} key={movie.imdbID} />)
