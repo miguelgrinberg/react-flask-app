@@ -39,13 +39,14 @@ export default function MainPage() {
             ? movies.map((movie) => <MovieCard movie={movie} key={movie.imdbID} />)
             : null}
           {currentTab === Tabs.Favourites && favouriteMovies?.length
-            ? favouriteMovies.map((movie) => <MovieCard movie={movie} key={movie.imdbID} />)
+            ? recommendedMovies.map((movie) => <MovieCard movie={movie} key={movie.imdbID} />)
             : null}
           {currentTab === Tabs.Recommended && recommendedMovies?.length
             ? recommendedMovies.map((movie) => <MovieCard movie={movie} key={movie.imdbID} />)
             : null}
         </div>
       </div>
+      <NavBar />
     </div>
   );
 }
