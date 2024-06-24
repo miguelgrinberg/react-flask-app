@@ -3,6 +3,7 @@ Morning Team,
 Was having a brainstorm with the rest of the team last night. We decided a great name for the site should be MDB
 (it's a play on IMDB you see?)
 
+Tushita
 
 ## Tips
 

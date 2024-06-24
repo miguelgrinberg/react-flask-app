@@ -2,7 +2,7 @@ Hey team,
 
 Could we try adding a NavBar - but we don't want it to detract from the look and feel of the site, so can we stick it at the bottom?
 
-Phil
+Tushita
 
 ## Tips
 

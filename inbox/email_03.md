@@ -3,7 +3,7 @@ Afternoon Devs,
 We need some more colour on the website. We're thinking big, bright beautiful colours that differentiate our website from 
 all the other movie websites out there. Change the title of the movie cards to give some oomph!
 
-Steve
+Nik
 
 
 ## Tips
