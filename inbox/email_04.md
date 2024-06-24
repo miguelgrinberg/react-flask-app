@@ -3,7 +3,7 @@ Hey Team,
 Things are looking good! Can we add some spacing between the Movie poster and the text on the right to really make use
 of some screen real estate?
 
-Steve
+Phil
 
 ## Tips
 
