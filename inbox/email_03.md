@@ -8,9 +8,9 @@ Nik
 
 ## Tips
 
-Take a look at MovieCard.jsx and look for this line:
+Take a look at [MovieCard.jsx](../src/components/MovieCard.jsx) and look for this line:
 
-`<h1 className="text-sm text-secondary">{Title}</h1>`
+`<h1 className="text-3xl text-secondary">{Title}</h1>`
 
 Text-secondary is a pre-defined css configuration whose colour is mapped in [tailwind.config.js](../tailwind.config.js). By storing the colours
 in the config file, it means that anywhere on the site where we use "text-secondary" will have the same colour. We could
