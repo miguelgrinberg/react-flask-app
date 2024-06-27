@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { Tabs } from "../components/NavBar";
+import NavBar, { Tabs } from "../components/NavBar";
 import MovieService from "../services/MovieService";
 import MovieCard from "../components/MovieCard";
+import SearchBar from "../components/SearchBar";
 import useMoviesContext from "../context/MoviesContext";
 import { mockedMovies } from "../mocks/movies";
 import { Actions } from "../reducers/moviesReducer";
