@@ -1,29 +1,16 @@
 Hi Team,
 
-Can we add search functionality to the website? Ideally I'd like the search bar to be inside the Navbar..
+Users are complaining they can't find the movie they are looking for. I think our database is not good enough. I'm going to do some research and get back to you.
 
 Jeenal
 
 ## Tips
 
-There's already a pre-made [Search](../src/components/SearchBar.jsx) in the Components folder. You can use composition to place this inside the Navbar. The Navbar can accept child components via the syntax:
+Make sure the flask backend service is running.
 
-`    <NavBar>
-        <Insert Component Here>
-    </NavBar>`
+Go to [MainPage.jsx](../src/pages/MainPage.jsx) and uncomment line 25 to 27.
 
-Search requires a function to be passed into it to work, the syntax is as follows:
+Don't forget to remove the search functionality we added in [email_22](../inbox/email_22.md).
 
-`<Search setSearch={}>`
+Go to the [next](../inbox/email_24.md) email.
 
-Can you figure out which function it requires passed into the curly brackets?
-
-And then finally, to get the SearchBar working, on the main page, you will see a function that is commented out:
-
-`setMovies(moviesData.filter())`
-
-If this code is commented out, it will run everytime something is typed into the search bar. The filter method takes a function and runs it against the array of movies. To find out more, look [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
-
-Can you create a function, that filters through the list of movies, but only keeps the movies that contain the search term entered in the search bar?
-
-As a bonus, can you make it so that the filtering function is case insensitive?

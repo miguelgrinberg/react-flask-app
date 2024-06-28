@@ -1,8 +1,13 @@
 Hi Team,
 
-Our users have started sending in requests to understand whether the movie is rated G, PG... And they also want some more information on how long the movie is. Could you take a look and see if it is possible to display these details?
+Our bills are too high! Can we reduce the amount of requests being sent to the server when a user searches for a movie?
 
 Jeenal
 
 ## Tips
-Take a look at the [mocked movie details](../src/mocks/movieDetails.js) to see if further details are available and what information is relevant to fulfil this request.
+
+Look at [MainPage.jsx](../src/pages/MainPage.jsx)
+
+The if statement on line 22 tells us that the request will not be sent if the search length is less than 0 by the "return" keyword. 
+
+Make it so that it wont send a request if the search length is 2 or less.

@@ -1,16 +1,13 @@
 Hi Team,
 
-Users are complaining they can't find the movie they are looking for. I think our database is not good enough. I'm going to do some research and get back to you.
+I have bought access to OMDB API to make our search functionality better. The key is with me, when needed, speak to me.
 
 Jeenal
 
 ## Tips
 
-Make sure the flask backend service is running.
+A "key" is also known as a password. It is important you don't leak keys as hackers could do bad things with them. The best thing to do when you leak a key is to disable it and generate a new one.
 
-Go to [MainPage.jsx](../src/pages/MainPage.jsx) and uncomment line 25 to 27.
+This specific key allows us to connect to **The Open Movie Database** (OMDb) which is a database that has loads of different movies.
 
-Don't forget to remove the search functionality we added in [email_23](../inbox/email_23.md).
-
-Go to the [next](../inbox/email_25.md) email.
-
+Look at [api.py](../api/api.py) and figure out where to add the key.

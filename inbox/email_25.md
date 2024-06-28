@@ -1,13 +1,17 @@
 Hi Team,
 
-I have bought access to OMDB API to make our search functionality better. The key is with me, when needed, speak to me.
+Every movie a user clicks on, it keeps showing them details for a Star Wars movie. Can this be fixed ASAP please.
 
 Jeenal
 
 ## Tips
 
-A "key" is also known as a password. It is important you don't leak keys as hackers could do bad things with them. The best thing to do when you leak a key is to disable it and generate a new one.
+Go to [MovieDetails.jsx](../src/components/MovieDetails.jsx), line 14
 
-This specific key allows us to connect to **The Open Movie Database** (OMDb) which is a database that has loads of different movies.
+We are always setting the details to "mockedMovieDetails"
 
-Look at [api.py](../api/api.py) and figure out where to add the key.
+By using the IMDb ID of a movie we clicked on, we can send a request to OMDb and get details for the movie.
+
+We do something like this in [MainPage.jsx](../src/pages/MainPage.jsx) to search for movies.
+
+Inside the useEffect in [MovieDetails.jsx](../src/components/MovieDetails.jsx), type "MovieService." and you will get a list of functions, use the one that allows us to get details for a movie.

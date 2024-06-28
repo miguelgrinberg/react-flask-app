@@ -1,11 +1,12 @@
 Hi Team,
 
-Our title is not correct, it should be called "Movie App" not "My App".
+All of our users are from the UK, we have an American spelling that needs to be changed to British spelling in the navigation bar.
 
 Jeenal
 
 ## Tips
+In [NavBar.jsx](../src/components/NavBar.jsx), look for the object called Tabs.
 
-Go to [index.html](../index.html)
+A object contains properties in the format key: "value".
 
-This is where we have some information for the website (metadata) such as icon, title etc.
+Changing the value will update what is displayed on the screen.
