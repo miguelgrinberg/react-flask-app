@@ -1,14 +1,10 @@
 Hi Team,
 
-I'm not sure I like the text being to the right of the movie. Can we try having it below the movie poster?
+Can we reduce the size of the text that appears with the movies?
 
 Jeenal
 
 ## Tips
 
-On the [MovieCard](../src/components/MovieCard.jsx), look for this line:
-
-`<div className="self-center flex items-center">`
-
-Flex is a css layout and its affect here is to put the children of the movie card container next to one another.
-By default, if not specified, each child component of the parent would take up the entire width of the parent container.
+On [MovieCard](../src/components/MovieCard.jsx), can you find the code responsible for displaying the movie title and description and see how you could
+reduce the text size?

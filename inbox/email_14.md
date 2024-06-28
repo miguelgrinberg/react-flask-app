@@ -1,10 +1,9 @@
 Hi Team,
 
-Can we reduce the size of the text that appears with the movies?
+The Movies heading is a bit large, can we make it smaller and maybe move it to the left of the page?
 
 Jeenal
 
 ## Tips
 
-On [MovieCard](../src/components/MovieCard.jsx), can you find the code responsible for displaying the movie title and description and see how you could
-reduce the text size?
+Take a look at [MainPage](../src/pages/MainPage.jsx) and search for `h1` (heading).

@@ -1,46 +1,16 @@
 Hi Team,
 
-We thought it'd be a great idea to be able to randomly generate a recommended movie to the user! A way to expand their horizons... What if there is a randomize button
-on the webpage that when you click on it, it auto generates a single movie on the recommended tab?
+I think we could make better use of the real estate on the page. Can we increase the number of films we can see on a row
+at any one time? Maybe we start with 5?
 
-Kush
+Jeenal
 
 ## Tips
 
-So firstly, we need to create a button. Style it how you would like to - the code below creates a red button:
+On the [MainPage](../src/pages/MainPage.jsx), look for this line:
 
-`<button className="p-2 bg-red-300 w-20" onClick={() => {}}>I am text that will be displayed on the button!</button>`
+`<div className="grid grid-cols-1">`
 
-We can position the button if we wanted to, by surrounding it with a div:
+This specifies that the layout of the movies should be in a grid format, with 1 column
 
-```
-<div className="self-center">
- <button className="p-2 bg-red-300 w-20" onClick={() => {}}>I am text that will be displayed on the button!</button>
-</div>
-```
-
-Next, we need to be able to add a movie to the reccommended tab. There is a "dispatch" function that allows you to add movies to the reccommended list. We can invoke this function each time the button is clicked by passing the function into the onClick parameter in the button like so:
-
-```
-<button className="p-2 bg-red-300 w-20" onClick={() => {
-      dispatch(
-        {
-          type: Actions.AddToRecommended,
-          payload: CODE GOES HERE
-        })
-  }}>Random!</button>
-```
-
-Where we see "CODE GOES HERE" we need to put in the random movie choice. For example, if we wanted to choose the first item in the list of movies, we could just do this:
-
-```
-<button className="p-2 bg-red-300 w-20" onClick={() => {
-      dispatch(
-        {
-          type: Actions.AddToRecommended,
-          payload: moviesData[0]
-        })
-  }}>Random!</button>
-```
-
-This selects the first item in the array of movies. How would we change this so it's always a random movie?
+Useful resource [here](https://tailwindcss.com/docs/grid-template-columns)

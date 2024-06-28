@@ -1,21 +1,8 @@
 Hi Team,
 
-a new feature is being requested where we need to display details when a user clicks on a movie.
+Our users have started sending in requests to understand whether the movie is rated G, PG... And they also want some more information on how long the movie is. Could you take a look and see if it is possible to display these details?
 
 Jeenal
 
 ## Tips
-
-There's already a pre-made [MovieDetails](../src/components/MovieDetails.jsx) component in the Components folder. 
-
-To use this component we need to go to [MovieCard.jsx](../src/components/MovieCard.jsx), on line 54 we have a conditional render.
-
-What this is saying is when showDetails equals true, do what ever is after "&&", currently it does nothing (null).
-
-In our case we want to display this component:
-
-`<MovieDetails imdbID={} onClose={}/>`
-
-Inside the curly braces of imdbID, we need to pass in the ID of the movie.
-
-Inside the curly branches of onClose, we need to pass in the function that handles closing the movie details component. (Look at the top of MovieCard.jsx for the function that sets showDetails to false)
+Take a look at the [mocked movie details](../src/mocks/movieDetails.js) to see if further details are available and what information is relevant to fulfil this request.

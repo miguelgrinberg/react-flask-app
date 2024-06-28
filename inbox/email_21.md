@@ -1,12 +1,16 @@
 Hi Team,
 
-All of our users are from the UK, we have an American spelling that needs to be changed to British spelling in the navigation bar.
+The icon to favourite movies is misleading, let's change it from a red heart to a gold star.
 
 Jeenal
 
 ## Tips
-In [NavBar.jsx](../src/components/NavBar.jsx), look for the object called Tabs.
 
-A object contains properties in the format key: "value".
+Look at [FavouriteIcon.jsx](../src/components/FavouriteIcon.jsx),
 
-Changing the value will update what is displayed on the screen.
+- When a movie isn't in favourite's, it should be outlined 
+- When a movie is in favourites, it should be filled.
+
+Go to [this](https://react-icons.github.io/react-icons/) website and look for 2 Star icons (one outlied and one filled). 
+
+Click on the icon for a guide on how to import them.
