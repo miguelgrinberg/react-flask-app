@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 /* clears the ‘X’ from Internet Explorer */
 input[type="search"]::-ms-clear {
@@ -21,8 +19,23 @@ input[type="search"]::-webkit-search-results-decoration {
   display: none;
 }
 
+html {
+  background-color: var(--color-background);
+}
+
 /* ONLY CHANGE FROM FROM BELOW THIS LINE */
 
-html {
-  background-color: theme("colors.background");
+/* DEFAULT */
+/* background #222B31 */
+/* primary #FF424F */
+/* secondary (text) #FFFFFF */
+/* accent (secondary text) #9CA3AF */
+
+@theme {
+  --font-display: "Arial";
+
+  --color-background: #222B31;
+  --color-primary: #FF424F;
+  --color-secondary: #FFFFFF;
+  --color-accent: #9CA3AF;
 }
