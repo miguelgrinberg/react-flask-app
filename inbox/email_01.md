@@ -9,5 +9,5 @@ Ece
 
 ## Tips
 
-The [tailwind.config.js](../tailwind.config.js)  file contains the main default colouring styles for the website. Use a website like [coolors](https://coolors.co)
+The [index.css](../src/index.css) file contains the main default colouring styles for the website. Use a website like [coolors](https://coolors.co)
 to generate an appropriate colour code.
