@@ -8,7 +8,7 @@ Jeenal
 
 ## Tips
 
-Check out the api code written in Python in [api.py](api/api.py), line 18. The block of code from line 18 - 22 defines a method written in Python. This is used to get information from the Open Movie Database (OMDb). 
+Check out the api code written in Python in [api.py](../api/api.py), line 18. The block of code from line 18 - 22 defines a method written in Python. This is used to get information from the Open Movie Database (OMDb). 
 
 Methods are a few lines of code used to perform a specific task.
 
@@ -18,6 +18,6 @@ For example: "http://www.omdbapi.com/?s=star&apikey=API_KEY" is a combination of
 * s=star
 * apikey=API_KEY
 
-If we copied this url with an real api key and put it in a Google browser, we would be able to see what the Open Movie Database (OMDb) returns. 
+If we copied this url with a real api key and put it in a Google browser, we would be able to see what the Open Movie Database (OMDb) returns. 
 
 Take a look at the [Open Movie Database (OMDb)](https://www.omdbapi.com/) documentation to see if Jeenal's request is possible. 
