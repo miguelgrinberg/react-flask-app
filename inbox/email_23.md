@@ -1,16 +1,13 @@
 Hi Team,
 
-Users are complaining they can't find the movie they are looking for. I think our database is not good enough. I'm going to do some research and get back to you.
+Our bills are too high! Can we reduce the number of requests being sent to the server when a user searches for a movie?
 
 Jeenal
 
 ## Tips
 
-Make sure the flask backend service is running.
+Look at [MainPage.jsx](../src/pages/MainPage.jsx)
 
-Go to [MainPage.jsx](../src/pages/MainPage.jsx) and uncomment line 25 to 27.
+The if statement on line 22 tells us that the request will not be sent if the search length is less than 0 by the "return" keyword. 
 
-Remember to remove the search functionality we added in [email_22](../inbox/email_22.md).
-
-Go to the [next](../inbox/email_24.md) email.
-
+Make it so that it won't send a request if the search length is 2 or less.
