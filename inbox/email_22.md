@@ -1,16 +1,12 @@
 Hi Team,
 
-Users are complaining they can't find the movie they are looking for. I think our database is not good enough. I'm going to do some research and get back to you.
+Users are complaining the website is getting slow when searching for movies!
+Can we only search for movies when a user enters more than three characters?
 
 Jeenal
 
 ## Tips
 
-Make sure the flask backend service is running.
+Look at [MainPage.jsx](../src/pages/MainPage.jsx)
 
-Go to [MainPage.jsx](../src/pages/MainPage.jsx) and uncomment line 25 to 27.
-
-Remember to remove the search functionality we added in [email_22](email_21.md).
-
-Go to the [next](../inbox/email_24.md) email.
-
+The if statement on line 22 tells us that the request will not be sent if the search length is less than 0 by the "return" keyword. 
