@@ -6,7 +6,7 @@ const MoviesContext = createContext(initialState);
 
 export const MoviesProvider = ({ children }) => {
   const [state, dispatch] = useReducer(moviesReducer, initialState);
-  const [tab, setTab] = useState(Tabs.Movie);
+  const [tab, setTab] = useState(Tabs.Movies);
 
   const value = {
     favouriteMovies: state.favouriteMovies,

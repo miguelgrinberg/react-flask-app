@@ -1,20 +1,20 @@
 Morning team,
 
 Or should I say afternoon? Sorry, it was a late one last night, we were in the pub getting excited about our product.
-We were talking about the landing page where we show the Star Wars movies. The newest ones were awful! I think
-we should filter them out so that we only ever show the originals (there should never have been any more after the first 3!)
+We were talking about the landing page where we show all movies. Movies after the year 2000 are awful! I think
+we should filter them out so that we only ever show movies made before the year 2000.
 
 Nik
 
 ## Tips
 
-Sounds like we have some pretty opinionated requirements!
+It sounds like we have some pretty opinionated requirements!
 
 Take a look at [MainPage](../src/pages/MainPage.jsx) and at this code:
 
 `const moviesData = mockedMovies.Search`
 
-Search is a list of movies. [Arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) in JavaScript have a number of ready made functions available on them - for example,
+Search is a list of movies. [Arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) in JavaScript have a number of ready-made functions available on them, for example,
 map, filter, forEach.
 
 The general way to use them is as follows:
