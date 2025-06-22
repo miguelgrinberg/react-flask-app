@@ -5,7 +5,7 @@ from flask_cors import CORS
 app = Flask(__name__, static_folder='../build', static_url_path='/')
 CORS(app)
 
-API_KEY = "2651b0db" # CHANGE AND REMOVE THIS ON THE DAY
+API_KEY = ""
 
 @app.errorhandler(404)
 def not_found(e):
