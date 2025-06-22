@@ -8,12 +8,12 @@ Phil
 
 ## Tips
 
-There's already a pre-made [Search](../src/components/SearchBar.jsx) in the Components folder. Can you see how you would import it into the layout of the website?
+There's already a pre-made [SearchBar](../src/components/SearchBar.jsx) in the Components folder. Can you see how you would import it into the layout of the website?
 
 Once you've imported it, you'll find that it ends up on two lines. To get everything to sit on one line, you'll need to surround the component with div tags, and add a classname of `flex`
 
-Search requires a function to be passed into it to work, the syntax is as follows:
+SearchBar requires a function to be passed into it to work, the syntax is as follows:
 
-`<Search setSearch={}>`
+`<SearchBar setSearch={}>`
 
 Can you figure out which function it requires passed into the curly brackets?
