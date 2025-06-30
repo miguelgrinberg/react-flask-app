@@ -25,4 +25,4 @@ For example, if we wanted to print the title of each movie in the Search array, 
 
 `mockedMovies.Search.map((movie) => {console.log(movie.Title)})`
 
-What could we do to filter out the movies that aren't the original 3 Star Wars films?
+What could we do to filter out the movies that came out before the year 2000?
