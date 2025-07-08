@@ -17,7 +17,7 @@ map, filter, forEach.
 
 For example, if we wanted to print the title of each movie in the Search array, we could do this:
 
-`mockedMovies.Search.filter((movie) => {movie.Year == 2010})`
+`mockedMovies.Search.filter((movie) => movie.Year == 2010)`
 
 This will give us any movie created in the year 2010
 
