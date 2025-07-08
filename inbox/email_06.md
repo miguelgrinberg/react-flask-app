@@ -8,8 +8,6 @@ Nik
 
 ## Tips
 
-It sounds like we have some pretty opinionated requirements!
-
 Take a look at [MainPage](../src/pages/MainPage.jsx) and at this code:
 
 `const moviesData = mockedMovies.Search`
@@ -17,12 +15,13 @@ Take a look at [MainPage](../src/pages/MainPage.jsx) and at this code:
 Search is a list of movies. [Arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) in JavaScript have a number of ready-made functions available on them, for example,
 map, filter, forEach.
 
-The general way to use them is as follows:
-
-`mockedMovies.Search.map(() => {})`
-
 For example, if we wanted to print the title of each movie in the Search array, we could do this:
 
-`mockedMovies.Search.map((movie) => {console.log(movie.Title)})`
+`mockedMovies.Search.filter((movie) => {movie.Year == 2010})`
 
-What could we do to filter out the movies that came out before the year 2000?
+This will give us any movie created in the year 2010
+
+What could we do to filter out the movies that came out **before the year** 2000?
+
+Have a look at these [comparison operators](https://www.w3schools.com/js/js_comparisons.asp) to choose the correct operator.
+

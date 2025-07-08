@@ -14,7 +14,7 @@ Methods are a few lines of code used to perform a specific task.
 
 In this method, we use a url pointing to the Open Movie Database (OMDb) to get back more information. This url is a combination of conditions joined by an '&'
 
-For example: "http://www.omdbapi.com/?s=star&apikey=API_KEY" is a combination of two conditions 
+For example, "http://www.omdbapi.com/?s=star&apikey=API_KEY" is a combination of two conditions 
 * s=star
 * apikey=API_KEY
 

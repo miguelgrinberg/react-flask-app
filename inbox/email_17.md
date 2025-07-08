@@ -5,4 +5,5 @@ Our users have started sending in requests to understand whether the movie is ra
 Jeenal
 
 ## Tips
+
 Take a look at the [mocked movie details](../src/mocks/movieDetails.js) to see if further details are available and what information is relevant to fulfil this request.

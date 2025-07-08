@@ -14,6 +14,6 @@ Once you've imported it, you'll find that it ends up on two lines. To get everyt
 
 SearchBar requires a function to be passed into it to work, the syntax is as follows:
 
-`<SearchBar setSearch={}>`
+`<SearchBar setSearch={}/>`
 
 Can you figure out which function it requires passed into the curly brackets?
