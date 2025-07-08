@@ -8,11 +8,11 @@ Jeenal
 
 There's already a pre-made [MovieDetails](../src/components/MovieDetails.jsx) component in the Components folder. 
 
-To use this component we need to go to [MovieCard.jsx](../src/components/MovieCard.jsx), on line 54 we have a conditional render.
+To use this component, we need to go to [MovieCard.jsx](../src/components/MovieCard.jsx), on line 54 we have a conditional render.
 
-What this is saying is when showDetails equals true, do what ever is after "&&", currently it does nothing (null).
+What this is saying is when showDetails equals true, do whatever is after "&&", currently it does nothing (null).
 
-In our case we want to display this component:
+In our case, we want to display this component:
 
 `<MovieDetails imdbID={} onClose={}/>`
 

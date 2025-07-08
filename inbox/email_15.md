@@ -8,3 +8,5 @@ Jeenal
 ## Tips
 
 There's already a pre-made [Navbar](../src/components/NavBar.jsx) in the Components folder. Can you see how you would import it into the layout of the website?
+
+Look at [email_07.md](./email_07.md) to see how we imported a NavBar component.

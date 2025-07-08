@@ -8,7 +8,7 @@ Jeenal
 
 Look at [FavouriteIcon.jsx](../src/components/FavouriteIcon.jsx),
 
-- When a movie isn't in favourite's, it should be outlined 
+- When a movie isn't in favourites, it should be outlined 
 - When a movie is in favourites, it should be filled.
 
 Go to [this](https://react-icons.github.io/react-icons/) website and look for 2 Star icons (one outlied and one filled). 

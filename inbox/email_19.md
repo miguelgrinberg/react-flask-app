@@ -7,6 +7,6 @@ Jeenal
 ## Tips
 In [NavBar.jsx](../src/components/NavBar.jsx), look for the object called Tabs.
 
-A object contains properties in the format key: "value".
+An object contains properties in the format key: "value".
 
 Changing the value will update what is displayed on the screen.
